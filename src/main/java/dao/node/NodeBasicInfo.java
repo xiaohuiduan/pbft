@@ -1,4 +1,4 @@
-package dao;
+package dao.node;
 
 import lombok.Data;
 
@@ -26,22 +26,17 @@ import lombok.Data;
  * //                  佛祖镇楼           BUG辟易
  *
  * @author: xiaohuiduan
- * @data: 2020/1/22 下午4:04
- * @description: nodeAddress里面保存了结点的通信地址
+ * @data: 2020/2/13 下午8:08
+ * @description: 结点节本信息
  */
 @Data
-public class NodeAddress {
+public class NodeBasicInfo {
     /**
-     * ip地址
+     * 结点地址的信息
      */
-    private String ip;
+    private NodeAddress address;
     /**
-     * 通信地址的端口号
+     * 这个代表了结点的序号
      */
-    private int port;
-
-    public NodeAddress(String ip, int port) {
-        this.ip = ip;
-        this.port = port;
-    }
+    private int index;
 }

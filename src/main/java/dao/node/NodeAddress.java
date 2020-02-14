@@ -1,4 +1,4 @@
-package msg;
+package dao.node;
 
 import lombok.Data;
 
@@ -26,18 +26,22 @@ import lombok.Data;
  * //                  佛祖镇楼           BUG辟易
  *
  * @author: xiaohuiduan
- * @data: 2020/1/22 下午2:56
- * @description: PBFT中间结点进行认证应该保存的信息
+ * @data: 2020/1/22 下午4:04
+ * @description: nodeAddress里面保存了结点的通信地址
  */
 @Data
-public class PbftNodeMsg {
+public class NodeAddress {
+    /**
+     * ip地址
+     */
+    private String ip;
+    /**
+     * 通信地址的端口号
+     */
+    private int port;
 
-    /**
-     * 是否认证成功
-     */
-    private boolean pass;
-    /**
-     * node 的结点编号
-     */
-    private int node;
+    public NodeAddress(String ip, int port) {
+        this.ip = ip;
+        this.port = port;
+    }
 }

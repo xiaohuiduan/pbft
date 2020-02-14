@@ -1,16 +1,18 @@
 package until;
 
-import config.AllNodeSharedMsg;
-import dao.Node;
-import dao.NodeAddress;
+import com.alibaba.fastjson.JSON;
+import dao.node.Node;
+import dao.pbft.MsgType;
+import dao.pbft.PbftMsg;
 import lombok.Getter;
 import lombok.Setter;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
+import lombok.extern.slf4j.Slf4j;
+import org.tio.client.ClientChannelContext;
+import org.tio.core.Tio;
+import p2p.P2PConnectionMsg;
+import p2p.common.MsgPacket;
 
-import java.util.concurrent.BlockingQueue;
-import java.util.concurrent.ConcurrentHashMap;
-import java.util.concurrent.LinkedBlockingQueue;
+import java.io.UnsupportedEncodingException;
 
 /**
  * //                            _ooOoo_
@@ -39,103 +41,34 @@ import java.util.concurrent.LinkedBlockingQueue;
  * @data: 2020/1/22 下午3:53
  * @description: pbft的工作流程
  * this is the most important thing
+ * 这个是整个算法的流程
  */
+@Slf4j
 public class Pbft {
-    /**
-     * 进行处理的消息队列，don‘t care about what is , just get it ！！
-     */
-    private BlockingQueue<PbftMsg> msgQueue = new LinkedBlockingQueue<PbftMsg>();
 
-    /**
-     * 此时运行的结点
-     */
-    @Getter
-    @Setter
-    private Node node;
+    private Node node = Node.getInstance();
+
 
     /**
-     * 日志处理
-     */
-    private Logger logger = LoggerFactory.getLogger(getClass());
-
-    public void start(Node n){
-
-        this.node = n;
-
-        if (!initAddress()){
-            logger.error(node.getIndex()+"：结点初始化所有节点的ip地址失败！");
-            return ;
-        }
-
-
-        initServer();
-        initClient();
-
-        /**
-         * 初始化连接，通过上一步获得的ip与其他结点链接
-         */
-        if (!initSocket()){
-            logger.error(node.getIndex()+"：结点进行网络链接失败！");
-            return;
-        }
-
-        /**
-         * 结点开始运行
-         */
-        node.setRun(true);
-
-        new Thread(new Runnable() {
-            public void run() {
-
-                while (true){
-                    
-                }
-            }
-        }).start();
-    }
-
-    /**
-     * 开启客户端
-     * @return
-     */
-    private boolean initClient() {
-        return true;
-    }
-
-    /**
-     * 开启服务端
-     * @return
-     */
-    private boolean initServer() {
-        return true;
-    }
-
-    /**
+     * 发送view请求
      *
-     * todo 初始化socket链接
+     * @return
      */
-    private boolean initSocket() {
-
+    private boolean pubView() {
+        log.info("结点开始进行view同步操作");
+        // 初始化view的msg
+        PbftMsg view = new PbftMsg(MsgType.GET_VIEW, node.getIndex());
+        String jsonView = JSON.toJSONString(view);
+        MsgPacket msgPacket = new MsgPacket();
+        try {
+            msgPacket.setBody(jsonView.getBytes(MsgPacket.CHARSET));
+            for (ClientChannelContext client : P2PConnectionMsg.CLIENTS.values()) {
+                Tio.send(client, msgPacket);
+            }
+        } catch (UnsupportedEncodingException e) {
+            log.error(String.format("结点%d同步失败", node.getIndex()));
+            return false;
+        }
         return true;
     }
-
-    /**
-     * 获得结点的ip地址
-     */
-    private boolean initAddress() {
-        AllNodeSharedMsg.allNodeAddressMap = new ConcurrentHashMap<Integer, NodeAddress>(2<<10);
-        // todo 将所有结点的信息加入到map中间
-        AllNodeSharedMsg.allNodeAddressMap.put(node.getIndex(),node.getAddress());
-        return true;
-    }
-
-    /**
-     * 进行view同步
-     */
-    private void pubView() {
-
-    }
-
-
-
 }

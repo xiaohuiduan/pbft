@@ -1,7 +1,7 @@
-import config.AllNodeSharedMsg;
-import dao.Node;
-import dao.NodeAddress;
-import org.tio.core.Tio;
+import cn.hutool.core.date.DateUtil;
+import com.alibaba.fastjson.JSON;
+
+import java.util.Date;
 
 /**
  * //                            _ooOoo_
@@ -32,15 +32,33 @@ import org.tio.core.Tio;
  */
 public class Main {
     public static void main(String[] args) {
-        /**
-         * 初始化配置
-         */
-        AllNodeSharedMsg.size = 4;
+//        /**
+//         * 初始化配置
+//         */
+//        AllNodeCommonMsg.size = 4;
+//
+//        /**
+//         * 进行结点初始化
+//         */
+//        Node node = new Node(new NodeAddress("192.18.0.1",8080),0);
+//当前时间
+//        Date date = DateUtil.date();
+//        System.out.println(date);
+        String msg = "{\n" +
+                "    \"animals\": {\n" +
+                "        \"dog\": [\n" +
+                "            {\n" +
+                "                \"name\": \"Rufus\",\n" +
+                "                \"age\":15\n" +
+                "            },\n" +
+                "            {\n" +
+                "                \"name\": \"Marty\",\n" +
+                "                \"age\": null\n" +
+                "            }\n" +
+                "        ]\n" +
+                "}\n" +
+                "}";
 
-        /**
-         * 进行结点初始化
-         */
-        Node node = new Node(new NodeAddress("192.18.0.1",8080),0);
-
+        System.out.println(JSON.isValid(msg));
     }
 }

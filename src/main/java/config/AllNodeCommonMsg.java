@@ -1,4 +1,8 @@
-package msg;
+package config;
+
+import dao.node.NodeBasicInfo;
+
+import java.util.concurrent.ConcurrentHashMap;
 
 /**
  * //                            _ooOoo_
@@ -24,53 +28,44 @@ package msg;
  * //                  佛祖镇楼           BUG辟易
  *
  * @author: xiaohuiduan
- * @data: 2020/1/22 下午3:34
- * @description: pbft的提交的阶段类型
+ * @data: 2020/1/22 下午3:27
+ * @description: 所有的结点的需要相同的信息，（假如不相同，则需要同步）
  */
-public enum PBFTTypeEnum {
-    REQUEST_VIEW("请求视图",0),
-    CHANGE_VIEW("视图变更",1),
-    REQUEST_DATA("请求数据",2),
-    PRE_PREPARE("预准备阶段",3),
-    PREPARE("准备阶段",4),
-    COMMIT("提交阶段",5),
-    REPLAY("回复",6);
+public class AllNodeCommonMsg {
+    /**
+     * 区块链中结点的总结点数
+     */
+    public static int size;
 
-    private String msg;
-    private int code;
+    /**
+     * 最大失效节点
+     */
+    private int maxf;
 
-    PBFTTypeEnum(String msg, int code) {
-        this.msg = msg;
-        this.code = code;
+    /**
+     * 获得最大失效结点的数量
+     * @return
+     */
+    public static int getMaxf() {
+        return (size-1)/3;
     }
 
     /**
-     * 根据状态码返回对应的enum
-     * @param code
+     * 获得主节点的index序号
      * @return
      */
-    public static PBFTTypeEnum find(int code){
-        for (PBFTTypeEnum ve:PBFTTypeEnum.values()){
-            if (ve.code == code){
-                return ve;
-            }
-        }
-        return null;
+    public static int getPriIndex(){
+        return (view+1)%size;
     }
 
-    public String getMsg() {
-        return msg;
-    }
+    /**
+     * 保存结点对应的ip地址和端口号
+     */
+    public static ConcurrentHashMap<Integer, NodeBasicInfo> allNodeAddressMap;
 
-    public void setMsg(String msg) {
-        this.msg = msg;
-    }
-
-    public int getCode() {
-        return code;
-    }
-
-    public void setCode(int code) {
-        this.code = code;
-    }
+    /**
+     * view的值，0代表view未被初始化
+     * 当前视图的编号，通过这个编号可以算出主节点的序号
+     */
+    public volatile static int view =0;
 }

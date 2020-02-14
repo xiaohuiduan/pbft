@@ -1,6 +1,4 @@
-package dao;
-
-import lombok.Data;
+package p2p.common;
 
 /**
  * //                            _ooOoo_
@@ -26,38 +24,22 @@ import lombok.Data;
  * //                  佛祖镇楼           BUG辟易
  *
  * @author: xiaohuiduan
- * @data: 2020/1/22 下午3:22
- * @description: 结点自身的信息
+ * @data: 2020/2/12 上午12:07
+ * @description: 常量
  */
-@Data
-public class Node {
+public interface Const {
+    /**
+     * 服务器地址
+     */
+    public static final String SERVER = "127.0.0.1";
 
     /**
-     * 结点地址的信息
+     * 监听端口
      */
-    private NodeAddress address;
-    /**
-     * 这个代表了结点的序号
-     */
-    private int index;
+    public static final int PORT = 8080;
 
     /**
-     * 当前视图的编号，通过这个编号可以算出主节点的序号
+     * 心跳超时时间
      */
-    private int viewNum;
-
-    /**
-     * 判断结点是否运行
-     */
-    private boolean isRun = false;
-
-    /**
-     * 视图状态，判断是否ok，
-     */
-    private volatile boolean viewOK;
-
-    public Node(NodeAddress address, int index) {
-        this.address = address;
-        this.index = index;
-    }
+    public static final int TIMEOUT = 1000 * 60;
 }

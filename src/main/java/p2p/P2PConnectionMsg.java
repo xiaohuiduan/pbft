@@ -1,6 +1,12 @@
-package until;
+package p2p;
 
-import lombok.Data;
+import org.tio.client.ClientChannelContext;
+
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.List;
+import java.util.Map;
+import java.util.concurrent.ConcurrentHashMap;
 
 /**
  * //                            _ooOoo_
@@ -26,29 +32,18 @@ import lombok.Data;
  * //                  佛祖镇楼           BUG辟易
  *
  * @author: xiaohuiduan
- * @data: 2020/1/22 下午3:56
- * @description: 进行Pbft发送的消息、
+ * @data: 2020/2/13 下午7:47
+ * @description: p2p网络的连接信息
+ * 这个里面有：
+ * 1. 自己作为服务端所连接的client信息
+ * 2. 自己作为客户端与server的上下文
  */
-@Data
-public class PbftMsg {
-    /**
-     * 消息类型
-     */
-    private int msgType;
+public class P2PConnectionMsg {
 
     /**
-     * 消息发起的结点编号
+     * 代表结点的client
      */
-    private int node;
+    public static Map<Integer,ClientChannelContext> CLIENTS;
 
-    /**
-     * 消息时间戳
-     */
-    private long time;
-
-    /**
-     * 检测是否通过
-     */
-    private boolean isOk;
 
 }
