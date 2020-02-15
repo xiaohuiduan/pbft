@@ -1,18 +1,9 @@
-package until;
+package util;
 
-import com.alibaba.fastjson.JSON;
 import dao.node.Node;
 import dao.pbft.MsgType;
 import dao.pbft.PbftMsg;
-import lombok.Getter;
-import lombok.Setter;
 import lombok.extern.slf4j.Slf4j;
-import org.tio.client.ClientChannelContext;
-import org.tio.core.Tio;
-import p2p.P2PConnectionMsg;
-import p2p.common.MsgPacket;
-
-import java.io.UnsupportedEncodingException;
 
 /**
  * //                            _ooOoo_
@@ -48,7 +39,6 @@ public class Pbft {
 
     private Node node = Node.getInstance();
 
-
     /**
      * 发送view请求
      *
@@ -58,17 +48,17 @@ public class Pbft {
         log.info("结点开始进行view同步操作");
         // 初始化view的msg
         PbftMsg view = new PbftMsg(MsgType.GET_VIEW, node.getIndex());
-        String jsonView = JSON.toJSONString(view);
-        MsgPacket msgPacket = new MsgPacket();
-        try {
-            msgPacket.setBody(jsonView.getBytes(MsgPacket.CHARSET));
-            for (ClientChannelContext client : P2PConnectionMsg.CLIENTS.values()) {
-                Tio.send(client, msgPacket);
-            }
-        } catch (UnsupportedEncodingException e) {
-            log.error(String.format("结点%d同步失败", node.getIndex()));
-            return false;
-        }
+        ClientUtil.clientPublish(view);
+
+        return true;
+    }
+
+    /**
+     * 视图发送该表
+     * @return
+     */
+    public boolean changeView(){
+
         return true;
     }
 }

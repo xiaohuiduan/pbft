@@ -1,7 +1,11 @@
 package dao.pbft;
 
+import com.google.common.collect.Sets;
 import com.google.common.util.concurrent.AtomicLongMap;
+import lombok.Data;
 
+import java.util.Map;
+import java.util.Set;
 import java.util.concurrent.BlockingQueue;
 import java.util.concurrent.LinkedBlockingQueue;
 
@@ -33,6 +37,7 @@ import java.util.concurrent.LinkedBlockingQueue;
  * @description: 这个是进行PBFT算法保存的消息
  * 使用单例模式进行设计
  */
+@Data
 public class MsgCollection {
 
     private static MsgCollection msgCollection = new MsgCollection();
@@ -57,12 +62,20 @@ public class MsgCollection {
      */
     private AtomicLongMap<Integer> viewNumCount = AtomicLongMap.create();
 
+    /**
+     * 预准备阶段
+     */
+    private Set<PbftMsg> votePrePrepare = Sets.newConcurrentHashSet();
 
-    public BlockingQueue<PbftMsg> getMsgQueue() {
-        return msgQueue;
-    }
+    /**
+     * 准备阶段
+     */
+    private AtomicLongMap<PbftMsg> agreePrepare = AtomicLongMap.create();
 
-    public AtomicLongMap<Integer> getViewNumCount() {
-        return viewNumCount;
-    }
+    /**
+     * commit阶段
+     */
+    private AtomicLongMap<PbftMsg> agreeCommit = AtomicLongMap.create();
+
+
 }

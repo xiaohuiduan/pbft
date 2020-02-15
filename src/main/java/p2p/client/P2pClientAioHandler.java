@@ -44,6 +44,9 @@ import java.util.concurrent.BlockingQueue;
  */
 @Slf4j
 public class P2pClientAioHandler implements ClientAioHandler {
+    /**
+     * this is heart packet，目的是告诉服务器端我存在
+     */
     private static MsgPacket heartPacket = new MsgPacket();
     /**
      * 消息队列
@@ -57,6 +60,7 @@ public class P2pClientAioHandler implements ClientAioHandler {
      * @return
      * @author tanyaowu
      */
+    @Override
     public Packet heartbeatPacket(ChannelContext channelContext) {
         return heartPacket;
     }
@@ -73,6 +77,7 @@ public class P2pClientAioHandler implements ClientAioHandler {
      * @return
      * @throws AioDecodeException
      */
+    @Override
     public Packet decode(ByteBuffer buffer, int limit, int position, int readableLength, ChannelContext channelContext) throws AioDecodeException {
         if (readableLength < MsgPacket.HEADER_LENGHT) {
             return null;
@@ -106,6 +111,7 @@ public class P2pClientAioHandler implements ClientAioHandler {
      * @return
      * @author: tanyaowu
      */
+    @Override
     public ByteBuffer encode(Packet packet, TioConfig tioConfig, ChannelContext channelContext) {
         MsgPacket msgPacket = (MsgPacket) packet;
         byte[] body = msgPacket.getBody();
@@ -136,6 +142,7 @@ public class P2pClientAioHandler implements ClientAioHandler {
      * @throws Exception
      * @author: tanyaowu
      */
+    @Override
     public void handler(Packet packet, ChannelContext channelContext) throws Exception {
         MsgPacket msgPacket = (MsgPacket) packet;
         byte[] body = msgPacket.getBody();

@@ -1,7 +1,10 @@
 package dao.pbft;
 
 import cn.hutool.core.date.DateUtil;
+import cn.hutool.core.util.IdUtil;
 import lombok.Data;
+
+import java.util.Objects;
 
 /**
  * //                            _ooOoo_
@@ -38,6 +41,11 @@ public class PbftMsg {
     private int msgType;
 
     /**
+     * 消息体
+     */
+    private String body;
+
+    /**
      * 消息发起的结点编号
      */
     private int node;
@@ -62,11 +70,39 @@ public class PbftMsg {
      */
     private int viewNum;
 
+    /**
+     * 使用UUID进行生成
+     */
+    private String id;
+
+    private PbftMsg() {
+    }
+
     public PbftMsg(int msgType, int node) {
         this.msgType = msgType;
         this.node = node;
         this.time = System.currentTimeMillis();
+        this.id = IdUtil.randomUUID();
     }
 
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) {
+            return true;
+        }
+        if (o == null || getClass() != o.getClass()) {
+            return false;
+        }
+        PbftMsg msg = (PbftMsg) o;
+        return node == msg.node &&
+                time == msg.time &&
+                viewNum == msg.viewNum &&
+                body.equals(msg.body) &&
+                id.equals(msg.id);
+    }
 
+    @Override
+    public int hashCode() {
+        return Objects.hash(body, node, time, viewNum, id);
+    }
 }

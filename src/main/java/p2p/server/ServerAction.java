@@ -3,15 +3,19 @@ package p2p.server;
 import com.alibaba.fastjson.JSON;
 import config.AllNodeCommonMsg;
 import dao.node.Node;
+import dao.pbft.MsgCollection;
 import dao.pbft.MsgType;
 import dao.pbft.PbftMsg;
 import lombok.extern.slf4j.Slf4j;
 import org.tio.client.ClientChannelContext;
 import org.tio.core.ChannelContext;
 import org.tio.core.Tio;
+import p2p.client.ClientAction;
 import p2p.common.MsgPacket;
-import until.ClientUtil;
+import util.ClientUtil;
+import util.PbftUtil;
 
+import javax.sound.midi.MidiSystem;
 import java.io.UnsupportedEncodingException;
 
 
@@ -45,11 +49,13 @@ import java.io.UnsupportedEncodingException;
 @Slf4j
 public class ServerAction {
     private Node node = Node.getInstance();
-
+    private MsgCollection msgCollection = MsgCollection.getInstance();
     /**
      * 单例模式构建action
      */
     private static ServerAction action = new ServerAction();
+
+    private MsgCollection collection = MsgCollection.getInstance();
 
     public static ServerAction getInstance() {
         return action;
@@ -71,13 +77,109 @@ public class ServerAction {
                 addClient(channelContext, msg);
                 onGetView(channelContext, msg);
                 break;
+            case MsgType.CHANGE_VIEW:
+                changeView(channelContext, msg);
+                break;
+            case MsgType.PRE_PREPARE:
+                prePrepare(msg);
+                break;
+            case MsgType.PREPARE:
+                prepare(msg);
+                break;
+                case MsgType.COMMIT:
+                    commit(msg);
             default:
                 break;
         }
     }
 
     /**
+     * commit阶段
+     * @param msg
+     */
+    private void commit(PbftMsg msg) {
+
+        long count = collection.getAgreeCommit().incrementAndGet(msg);
+
+        if (count >= 2 * AllNodeCommonMsg.getMaxf() + 1) {
+            log.info("数据符合，commit成功，数据可以生成块");
+            collection.getAgreeCommit().remove(msg);
+            PbftUtil.save(msg);
+        }
+    }
+
+    /**
+     * 节点将prepare消息进行广播然后被接收到
+     *
+     * @param msg
+     */
+    private void prepare(PbftMsg msg) {
+        if (!msgCollection.getVotePrePrepare().contains(msg) || !PbftUtil.checkMsg(msg)) {
+            return;
+        }
+
+        long count = collection.getAgreePrepare().incrementAndGet(msg);
+
+        if (count >= 2 * AllNodeCommonMsg.getMaxf() + 1) {
+            log.info("数据符合，进行commit操作");
+            collection.getVotePrePrepare().remove(msg);
+            collection.getAgreePrepare().remove(msg);
+
+            // 进入Commit阶段
+            msg.setMsgType(MsgType.COMMIT);
+            try {
+                collection.getMsgQueue().put(msg);
+                ClientAction.getInstance().doAction(null);
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }
+        }
+
+    }
+
+    /**
+     * 主节点发送过来的pre_prepare消息
+     *
+     * @param msg
+     */
+    private void prePrepare(PbftMsg msg) {
+        msg.setMsgType(MsgType.PREPARE);
+        msgCollection.getVotePrePrepare().add(msg);
+        if (!PbftUtil.checkMsg(msg)) {
+            return;
+        }
+
+        try {
+            msgCollection.getMsgQueue().put(msg);
+            ClientAction.getInstance().doAction(null);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+            return;
+        }
+    }
+
+    /**
+     * 重新设置view
+     *
+     * @param channelContext
+     * @param msg
+     */
+    private void changeView(ChannelContext channelContext, PbftMsg msg) {
+        if (node.isViewOK()) {
+            return;
+        }
+        long count = collection.getViewNumCount().incrementAndGet(msg.getViewNum());
+        if (count >= 2 * AllNodeCommonMsg.getMaxf() + 1) {
+            collection.getViewNumCount().clear();
+            node.setViewOK(true);
+            AllNodeCommonMsg.view = msg.getViewNum();
+            log.info("视图变更完成OK");
+        }
+    }
+
+    /**
      * 添加未连接的结点
+     *
      * @param channelContext
      * @param msg
      */
@@ -92,6 +194,12 @@ public class ServerAction {
     }
 
 
+    /**
+     * 将自己的view发送给client
+     *
+     * @param channelContext
+     * @param msg
+     */
     private void onGetView(ChannelContext channelContext, PbftMsg msg) {
         log.info("server结点回复视图请求操作");
         int fromNode = msg.getNode();

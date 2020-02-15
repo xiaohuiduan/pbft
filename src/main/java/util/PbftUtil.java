@@ -1,9 +1,6 @@
-import cn.hutool.core.date.DateUtil;
-import com.alibaba.fastjson.JSON;
-import com.google.common.util.concurrent.AtomicLongMap;
-import dao.pbft.PbftMsg;
+package util;
 
-import java.util.Date;
+import dao.pbft.PbftMsg;
 
 /**
  * //                            _ooOoo_
@@ -29,13 +26,16 @@ import java.util.Date;
  * //                  佛祖镇楼           BUG辟易
  *
  * @author: xiaohuiduan
- * @data: 2020/1/22 下午2:46
- * @description: 程序运行开始类
+ * @data: 2020/2/15 下午10:38
+ * @description: pbft算法的工具类
  */
-public class Main {
-    public static void main(String[] args) {
-         AtomicLongMap<Integer> agreePrePrepare = AtomicLongMap.create();
-         agreePrePrepare.incrementAndGet(1);
-        System.out.println(agreePrePrepare.get(1));
+public class PbftUtil {
+
+    public static boolean checkMsg(PbftMsg msg){
+
+        return true;
+    }
+
+    public static void save(PbftMsg msg) {
     }
 }

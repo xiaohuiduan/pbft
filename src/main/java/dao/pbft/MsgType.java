@@ -1,5 +1,7 @@
 package dao.pbft;
 
+import org.omg.CORBA.PUBLIC_MEMBER;
+
 /**
  * //                            _ooOoo_
  * //                           o8888888o
@@ -32,5 +34,30 @@ public class MsgType {
      * 请求视图
      */
     public static final int GET_VIEW = -1;
+
+    /**
+     * 变更视图
+     */
+    public static final int CHANGE_VIEW = 0;
+
+    /**
+     * 预准备阶段
+     */
+    public static final int PRE_PREPARE = 1;
+
+    /**
+     * 准备阶段
+     */
+    public static final int PREPARE = 2;
+
+    /**
+     * 提交阶段
+     */
+    public static final int COMMIT = 3;
+
+    /**
+     * 回复阶段 ？？？
+     */
+    public static final int REPLY = 4;
 
 }

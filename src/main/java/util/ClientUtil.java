@@ -1,15 +1,21 @@
-package until;
+package util;
 
+import com.alibaba.fastjson.JSON;
+import dao.pbft.PbftMsg;
 import lombok.extern.slf4j.Slf4j;
 import org.tio.client.ClientChannelContext;
 import org.tio.client.ClientTioConfig;
 import org.tio.client.ReconnConf;
 import org.tio.client.TioClient;
 import org.tio.core.Node;
+import org.tio.core.Tio;
 import p2p.P2PConnectionMsg;
 import p2p.client.P2PClientLinstener;
 import p2p.client.P2pClientAioHandler;
 import p2p.common.Const;
+import p2p.common.MsgPacket;
+
+import java.io.UnsupportedEncodingException;
 
 /**
  * //                            _ooOoo_
@@ -41,6 +47,7 @@ import p2p.common.Const;
 @Slf4j
 public class ClientUtil {
 
+
     /**
      * client 的配置
      */
@@ -66,7 +73,8 @@ public class ClientUtil {
 
     /**
      * 添加client到 P2PConnectionMsg.CLIENTS中
-     * @param index 结点序号
+     *
+     * @param index  结点序号
      * @param client
      */
     public static void addClient(int index, ClientChannelContext client) {
@@ -75,14 +83,34 @@ public class ClientUtil {
 
     /**
      * 判断该结点是否保存在CLIENTS中
+     *
      * @param index
      * @return
      */
-    public static boolean haveClient(int index){
-        if (P2PConnectionMsg.CLIENTS.containsKey(index)){
+    public static boolean haveClient(int index) {
+        if (P2PConnectionMsg.CLIENTS.containsKey(index)) {
             return true;
-        }else{
+        } else {
             return false;
+        }
+    }
+
+    /**
+     * client对所有的server广播
+     *
+     * @param msg
+     */
+    public static void clientPublish(PbftMsg msg) {
+        String jsonView = JSON.toJSONString(msg);
+        MsgPacket msgPacket = new MsgPacket();
+        for (ClientChannelContext client : P2PConnectionMsg.CLIENTS.values()) {
+            Tio.send(client, msgPacket);
+            try {
+                msgPacket.setBody(jsonView.getBytes(MsgPacket.CHARSET));
+            } catch (UnsupportedEncodingException e) {
+                log.error("数据utf-8编码错误" + e.getMessage());
+            }
+
         }
     }
 }

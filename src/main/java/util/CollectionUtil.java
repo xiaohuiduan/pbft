@@ -1,9 +1,10 @@
-import cn.hutool.core.date.DateUtil;
-import com.alibaba.fastjson.JSON;
+package util;
+
+import com.google.common.collect.Sets;
 import com.google.common.util.concurrent.AtomicLongMap;
 import dao.pbft.PbftMsg;
 
-import java.util.Date;
+import java.util.Set;
 
 /**
  * //                            _ooOoo_
@@ -29,13 +30,19 @@ import java.util.Date;
  * //                  佛祖镇楼           BUG辟易
  *
  * @author: xiaohuiduan
- * @data: 2020/1/22 下午2:46
- * @description: 程序运行开始类
+ * @data: 2020/2/15 下午10:32
+ * @description: some util of collection
  */
-public class Main {
-    public static void main(String[] args) {
-         AtomicLongMap<Integer> agreePrePrepare = AtomicLongMap.create();
-         agreePrePrepare.incrementAndGet(1);
-        System.out.println(agreePrePrepare.get(1));
-    }
+public class CollectionUtil {
+
+//    /**
+//     * commit阶段
+//     */
+//    private Set<PbftMsg> voteCommit = Sets.newConcurrentHashSet();
+//    private AtomicLongMap<PbftMsg> agreeCommit = AtomicLongMap.create();
+//
+//
+//    public static boolean containKey(Set<PbftMsg> vote, ){
+//
+//    }
 }
