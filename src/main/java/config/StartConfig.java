@@ -124,7 +124,7 @@ public class StartConfig {
      * @return 成功返回true
      */
     private boolean initAddress() {
-        FileReader fileReader = new FileReader("/home/xiaohui/Home/config/ip.json");
+        FileReader fileReader = new FileReader("./ip.json");
         List<String> ipJsonStr = fileReader.readLines();
         for (String s : ipJsonStr) {
             IpJson ipJson = JSON.parseObject(s, IpJson.class);

@@ -55,7 +55,7 @@ public class PbftUtil {
      */
     public static void writeIpToFile(Node node) {
         log.info(String.format("节点%s写入文件", node.getIndex()));
-        FileWriter writer = new FileWriter("/home/xiaohui/Home/config/ip.json");
+        FileWriter writer = new FileWriter("./ip.json");
         IpJson ipJson = new IpJson();
         ipJson.setIp(node.getAddress().getIp());
         ipJson.setPort(node.getAddress().getPort());
