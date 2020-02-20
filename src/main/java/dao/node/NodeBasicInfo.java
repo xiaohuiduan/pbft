@@ -39,4 +39,5 @@ public class NodeBasicInfo {
      * 这个代表了结点的序号
      */
     private int index;
+
 }

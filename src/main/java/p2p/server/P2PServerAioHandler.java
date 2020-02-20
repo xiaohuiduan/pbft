@@ -147,7 +147,8 @@ public class P2PServerAioHandler implements ServerAioHandler {
         if (!JSON.isValid(msg)) {
             return;
         }
-        PbftMsg pbftMsg = (PbftMsg) JSON.parse(msg);
+        log.info("服务端接受消息："+msg);
+        PbftMsg pbftMsg =  JSON.parseObject(msg,PbftMsg.class);
         if (pbftMsg == null) {
             log.error("客户端将Json数据解析成pbft数据失败");
             return;

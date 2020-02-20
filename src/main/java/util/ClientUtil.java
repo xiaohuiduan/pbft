@@ -1,6 +1,9 @@
 package util;
 
 import com.alibaba.fastjson.JSON;
+import config.AllNodeCommonMsg;
+import dao.node.NodeAddress;
+import dao.pbft.MsgType;
 import dao.pbft.PbftMsg;
 import lombok.extern.slf4j.Slf4j;
 import org.tio.client.ClientChannelContext;
@@ -104,13 +107,31 @@ public class ClientUtil {
         String jsonView = JSON.toJSONString(msg);
         MsgPacket msgPacket = new MsgPacket();
         for (ClientChannelContext client : P2PConnectionMsg.CLIENTS.values()) {
-            Tio.send(client, msgPacket);
             try {
                 msgPacket.setBody(jsonView.getBytes(MsgPacket.CHARSET));
+                Tio.send(client, msgPacket);
             } catch (UnsupportedEncodingException e) {
                 log.error("数据utf-8编码错误" + e.getMessage());
             }
-
         }
+    }
+
+    /**
+     * 将自己的节点ip消息广播出去
+     *
+     * @param index
+     * @param ip
+     * @param port
+     */
+    public static void publishIpPort(int index, String ip, int port) {
+        PbftMsg ipMsg = new PbftMsg(MsgType.IP_REPLY, index);
+        ipMsg.setViewNum(AllNodeCommonMsg.view);
+        // 将节点消息数据发送过去
+        NodeAddress address = new NodeAddress();
+        address.setPort(port);
+        address.setIp(ip);
+        ipMsg.setBody(JSON.toJSONString(address));
+        ClientUtil.clientPublish(ipMsg);
+        log.info("广播ip消息");
     }
 }

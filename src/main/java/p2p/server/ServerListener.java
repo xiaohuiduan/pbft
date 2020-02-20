@@ -35,9 +35,6 @@ import org.tio.server.intf.ServerAioListener;
  */
 @Slf4j
 public class ServerListener implements ServerAioListener {
-
-    private MsgCollection msgCollection = MsgCollection.getInstance();
-
     /**
      * 服务器检查到心跳超时时，会调用这个函数（一般场景，该方法只需要直接返回false即可）
      *

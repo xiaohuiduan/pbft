@@ -1,13 +1,16 @@
 package p2p.client;
 
+import com.alibaba.fastjson.JSON;
 import config.AllNodeCommonMsg;
 import dao.node.Node;
+import dao.node.NodeAddress;
 import dao.pbft.MsgCollection;
 import dao.pbft.MsgType;
 import dao.pbft.PbftMsg;
 import lombok.extern.slf4j.Slf4j;
 import org.tio.core.ChannelContext;
 import util.ClientUtil;
+import util.PbftUtil;
 
 /**
  * //                            _ooOoo_
@@ -77,8 +80,8 @@ public class ClientAction {
                 case MsgType.PRE_PREPARE:
                     prePrepare(msg);
                     break;
-                    case MsgType.COMMIT:
-                        commit(msg);
+                case MsgType.COMMIT:
+                    commit(msg);
                 default:
                     break;
             }
@@ -89,6 +92,7 @@ public class ClientAction {
 
     /**
      * 提交commit
+     *
      * @param msg
      */
     private void commit(PbftMsg msg) {
@@ -120,27 +124,19 @@ public class ClientAction {
      * @param msg
      */
     private void getView(PbftMsg msg) {
-
         if (node.isViewOK()) {
             return;
         }
         long count = collection.getViewNumCount().incrementAndGet(msg.getViewNum());
-        if (count >= 2 * AllNodeCommonMsg.getMaxf() + 1) {
+        if (count >= 2 * AllNodeCommonMsg.getMaxf() + 1 && !node.isViewOK()) {
             collection.getViewNumCount().clear();
             node.setViewOK(true);
             AllNodeCommonMsg.view = msg.getViewNum();
             log.info("视图初始化完成OK");
+            // 将节点写入文件
+            PbftUtil.writeIpToFile(node);
+            ClientUtil.publishIpPort(node.getIndex(), node.getAddress().getIp(), node.getAddress().getPort());
         }
     }
-
-
-//    /**
-//     * pre-prepare过程，将消息发送给所有的节点
-//     */
-//    private void onPrePrepare() {
-//        PbftMsg msg = new PbftMsg(MsgType.PRE_PREPARE, node.getIndex());
-//        msg.setViewNum(AllNodeCommonMsg.view);
-//        ClientUtil.clientPublish(msg);
-//    }
 
 }

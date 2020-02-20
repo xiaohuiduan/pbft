@@ -70,7 +70,7 @@ public class P2PClientLinstener implements ClientAioListener {
         if (isConnected) {
             log.info(String.format("结点%s连接服务端成功", channelContext));
         }else{
-            log.warn(String.format("结点%s连接服务端失败", channelContext));
+            log.warn(String.format("结点%s连接服务端%s失败", node.getIndex(),channelContext.getServerNode()));
         }
     }
 
@@ -117,6 +117,7 @@ public class P2PClientLinstener implements ClientAioListener {
     }
 
     /**
+     * 当处理好消息是就行action
      * @param channelContext
      * @param packet
      * @param cost           本次处理消息耗时，单位：毫秒
@@ -148,7 +149,6 @@ public class P2PClientLinstener implements ClientAioListener {
          */
         if (channelContext.equals(P2PConnectionMsg.CLIENTS.get(AllNodeCommonMsg.getPriIndex()))){
             log.warn("主节点链接失败，决定发起视图选举");
-
             node.setViewOK(false);
             PbftMsg msg = new PbftMsg(MsgType.CHANGE_VIEW,node.getIndex());
             msgQueue.put(msg);

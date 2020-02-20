@@ -1,5 +1,6 @@
 package util;
 
+import config.AllNodeCommonMsg;
 import dao.node.Node;
 import dao.pbft.MsgType;
 import dao.pbft.PbftMsg;
@@ -44,20 +45,32 @@ public class Pbft {
      *
      * @return
      */
-    private boolean pubView() {
+    public boolean pubView() {
+
+        /**
+         * 如果区块链中的网络节点小于3
+         */
+        if (AllNodeCommonMsg.allNodeAddressMap.size() < 3) {
+            log.warn("区块链中的节点小于等于3");
+            node.setViewOK(true);
+            // 将节点消息广播出去
+            ClientUtil.publishIpPort(node.getIndex(), node.getAddress().getIp(), node.getAddress().getPort());
+            return true;
+        }
+
         log.info("结点开始进行view同步操作");
         // 初始化view的msg
         PbftMsg view = new PbftMsg(MsgType.GET_VIEW, node.getIndex());
         ClientUtil.clientPublish(view);
-
         return true;
     }
 
     /**
      * 视图发送该表
+     *
      * @return
      */
-    public boolean changeView(){
+    public boolean changeView() {
 
         return true;
     }

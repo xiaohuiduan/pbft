@@ -2,7 +2,10 @@ package p2p.server;
 
 import com.alibaba.fastjson.JSON;
 import config.AllNodeCommonMsg;
+import dao.bean.IpJson;
 import dao.node.Node;
+import dao.node.NodeAddress;
+import dao.node.NodeBasicInfo;
 import dao.pbft.MsgCollection;
 import dao.pbft.MsgType;
 import dao.pbft.PbftMsg;
@@ -74,7 +77,6 @@ public class ServerAction {
     public void doAction(ChannelContext channelContext, PbftMsg msg) {
         switch (msg.getMsgType()) {
             case MsgType.GET_VIEW:
-                addClient(channelContext, msg);
                 onGetView(channelContext, msg);
                 break;
             case MsgType.CHANGE_VIEW:
@@ -86,8 +88,11 @@ public class ServerAction {
             case MsgType.PREPARE:
                 prepare(msg);
                 break;
-                case MsgType.COMMIT:
-                    commit(msg);
+            case MsgType.COMMIT:
+                commit(msg);
+            case MsgType.IP_REPLY:
+                addClient(msg);
+                break;
             default:
                 break;
         }
@@ -95,6 +100,7 @@ public class ServerAction {
 
     /**
      * commit阶段
+     *
      * @param msg
      */
     private void commit(PbftMsg msg) {
@@ -169,7 +175,8 @@ public class ServerAction {
             return;
         }
         long count = collection.getViewNumCount().incrementAndGet(msg.getViewNum());
-        if (count >= 2 * AllNodeCommonMsg.getMaxf() + 1) {
+
+        if (count >= 2 * AllNodeCommonMsg.getMaxf() + 1 && !node.isViewOK()) {
             collection.getViewNumCount().clear();
             node.setViewOK(true);
             AllNodeCommonMsg.view = msg.getViewNum();
@@ -180,13 +187,18 @@ public class ServerAction {
     /**
      * 添加未连接的结点
      *
-     * @param channelContext
      * @param msg
      */
-    private void addClient(ChannelContext channelContext, PbftMsg msg) {
+    private void addClient(PbftMsg msg) {
         if (!ClientUtil.haveClient(msg.getNode())) {
-            org.tio.core.Node clientNode = channelContext.getClientNode();
-            ClientChannelContext context = ClientUtil.clientConnect(clientNode.getIp(), clientNode.getPort());
+            String ipStr = msg.getBody();
+            IpJson ipJson = JSON.parseObject(ipStr, IpJson.class);
+            ClientChannelContext context = ClientUtil.clientConnect(ipJson.getIp(), ipJson.getPort());
+            NodeBasicInfo info = new NodeBasicInfo();
+            info.setIndex(msg.getNode());
+            info.setAddress(new NodeAddress());
+            AllNodeCommonMsg.allNodeAddressMap.put(msg.getNode(), info);
+            log.info(String.format("节点%s添加ip地址：%s", node, info));
             if (context != null) {
                 ClientUtil.addClient(msg.getNode(), context);
             }

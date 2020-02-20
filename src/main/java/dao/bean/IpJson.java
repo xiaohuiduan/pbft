@@ -1,10 +1,6 @@
-package util;
+package dao.bean;
 
-import com.google.common.collect.Sets;
-import com.google.common.util.concurrent.AtomicLongMap;
-import dao.pbft.PbftMsg;
-
-import java.util.Set;
+import lombok.Data;
 
 /**
  * //                            _ooOoo_
@@ -30,19 +26,12 @@ import java.util.Set;
  * //                  佛祖镇楼           BUG辟易
  *
  * @author: xiaohuiduan
- * @data: 2020/2/15 下午10:32
- * @description: some util of collection
+ * @data: 2020/2/18 下午11:59
+ * @description: ip json信息
  */
-public class CollectionUtil {
-
-//    /**
-//     * commit阶段
-//     */
-//    private Set<PbftMsg> voteCommit = Sets.newConcurrentHashSet();
-//    private AtomicLongMap<PbftMsg> agreeCommit = AtomicLongMap.create();
-//
-//
-//    public static boolean containKey(Set<PbftMsg> vote, ){
-//
-//    }
+@Data
+public class IpJson {
+    private int index;
+    private String ip;
+    private int port;
 }

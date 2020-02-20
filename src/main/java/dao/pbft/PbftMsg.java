@@ -2,6 +2,7 @@ package dao.pbft;
 
 import cn.hutool.core.date.DateUtil;
 import cn.hutool.core.util.IdUtil;
+import config.AllNodeCommonMsg;
 import lombok.Data;
 
 import java.util.Objects;
@@ -83,6 +84,7 @@ public class PbftMsg {
         this.node = node;
         this.time = System.currentTimeMillis();
         this.id = IdUtil.randomUUID();
+        this.viewNum = AllNodeCommonMsg.view;
     }
 
     @Override

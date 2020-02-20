@@ -1,14 +1,18 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="6bd61894-b69e-4acb-865c-de791438e846" name="Default Changelist" comment="没有经过运行测试的代码">
-      <change afterPath="$PROJECT_DIR$/src/main/java/util/CollectionUtil.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/util/PbftUtil.java" afterDir="false" />
+    <list default="true" id="6bd61894-b69e-4acb-865c-de791438e846" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/.idea/GrepConsole.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/dao/bean/IpJson.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/log4j.properties" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/config/AllNodeCommonMsg.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/config/AllNodeCommonMsg.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/config/StartConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/config/StartConfig.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/dao/pbft/MsgCollection.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/dao/pbft/MsgCollection.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/dao/node/Node.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/dao/node/Node.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/dao/node/NodeAddress.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/dao/node/NodeAddress.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/dao/node/NodeBasicInfo.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/dao/node/NodeBasicInfo.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/dao/pbft/MsgType.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/dao/pbft/MsgType.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/dao/pbft/PbftMsg.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/dao/pbft/PbftMsg.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/p2p/client/ClientAction.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/p2p/client/ClientAction.java" afterDir="false" />
@@ -17,11 +21,10 @@
       <change beforePath="$PROJECT_DIR$/src/main/java/p2p/server/P2PServerAioHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/p2p/server/P2PServerAioHandler.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/p2p/server/ServerAction.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/p2p/server/ServerAction.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/p2p/server/ServerListener.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/p2p/server/ServerListener.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/until/ClientUtil.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/util/ClientUtil.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/until/Pbft.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/util/Pbft.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/msg/PBFTTypeEnum.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/msg/PbftNodeMsg.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/until/Pbft.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/util/ClientUtil.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/util/ClientUtil.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/util/CollectionUtil.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/util/StartPbft.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/util/Pbft.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/util/Pbft.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/util/PbftUtil.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/util/PbftUtil.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -30,6 +33,9 @@
   </component>
   <component name="CodeStyleSettingsInfer">
     <option name="done" value="true" />
+  </component>
+  <component name="FavoritesManager">
+    <favorites_list name="PBFT" />
   </component>
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
@@ -68,7 +74,7 @@
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/src/main/java/p2p" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/src/main/resources" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
     <property name="project.structure.last.edited" value="Modules" />
@@ -78,11 +84,12 @@
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/src/main/resources" />
       <recent name="$PROJECT_DIR$/src/main/java/p2p" />
     </key>
   </component>
   <component name="RunManager">
-    <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+    <configuration name="Main" type="Application" factoryName="Application" singleton="false" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="Main" />
       <module name="PBFT" />
       <method v="2">
@@ -125,6 +132,8 @@
       <workItem from="1581752262996" duration="1810000" />
       <workItem from="1581758134034" duration="3285000" />
       <workItem from="1581767075079" duration="7856000" />
+      <workItem from="1581780318163" duration="594000" />
+      <workItem from="1582040833538" duration="19482000" />
     </task>
     <task id="LOCAL-00001" summary="完成一部分的消息类型定义">
       <created>1579681270431</created>
@@ -140,7 +149,14 @@
       <option name="project" value="LOCAL" />
       <updated>1581702207433</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary=":beers: 没有经过运行测试的代码">
+      <created>1581780567273</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1581780567273</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -149,25 +165,26 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="完成一部分的消息类型定义" />
     <MESSAGE value="完成视view同步操作" />
-    <option name="LAST_COMMIT_MESSAGE" value="完成视view同步操作" />
+    <MESSAGE value=":beers: 没有经过运行测试的代码" />
+    <option name="LAST_COMMIT_MESSAGE" value=":beers: 没有经过运行测试的代码" />
   </component>
   <component name="WindowStateProjectService">
-    <state x="278" y="45" width="800" height="670" key="#Project_Structure" timestamp="1581737016318">
+    <state x="278" y="45" width="800" height="670" key="#Project_Structure" timestamp="1582114017011">
       <screen x="0" y="0" width="1366" height="768" />
     </state>
-    <state x="278" y="45" width="800" height="670" key="#Project_Structure/0.0.1366.768@0.0.1366.768" timestamp="1581737016318" />
+    <state x="278" y="45" width="800" height="670" key="#Project_Structure/0.0.1366.768@0.0.1366.768" timestamp="1582114017011" />
     <state x="416" y="141" width="524" height="477" key="#com.intellij.codeInsight.editorActions.RestoreReferencesDialog" timestamp="1581304596065">
       <screen x="0" y="0" width="1366" height="768" />
     </state>
     <state x="416" y="141" width="524" height="477" key="#com.intellij.codeInsight.editorActions.RestoreReferencesDialog/0.0.1366.768@0.0.1366.768" timestamp="1581304596065" />
-    <state x="141" y="41" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1579675957494">
+    <state x="141" y="41" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1582114455700">
       <screen x="0" y="0" width="1366" height="768" />
     </state>
-    <state x="141" y="41" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1366.768@0.0.1366.768" timestamp="1579675957494" />
-    <state x="683" y="202" width="325" height="416" key="#com.intellij.ide.util.MemberChooser" timestamp="1581769820243">
+    <state x="141" y="41" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1366.768@0.0.1366.768" timestamp="1582114455700" />
+    <state x="683" y="202" width="325" height="416" key="#com.intellij.ide.util.MemberChooser" timestamp="1582111334826">
       <screen x="0" y="0" width="1366" height="768" />
     </state>
-    <state x="683" y="202" width="325" height="416" key="#com.intellij.ide.util.MemberChooser/0.0.1366.768@0.0.1366.768" timestamp="1581769820243" />
+    <state x="683" y="202" width="325" height="416" key="#com.intellij.ide.util.MemberChooser/0.0.1366.768@0.0.1366.768" timestamp="1582111334826" />
     <state x="491" y="87" width="374" height="585" key="#com.intellij.ide.util.MemberChooser/0.0.3286.1080@0.0.3286.1080" timestamp="1579679077184" />
     <state x="534" y="275" width="287" height="209" key="#com.intellij.ide.util.projectWizard.JdkChooserPanel.MyDialog" timestamp="1579675658018">
       <screen x="0" y="0" width="1366" height="768" />
@@ -181,51 +198,63 @@
       <screen x="0" y="0" width="1366" height="768" />
     </state>
     <state x="410" y="0" width="536" height="761" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog/0.0.1366.768@0.0.1366.768" timestamp="1581304299988" />
-    <state x="360" y="7" width="805" height="761" key="CommitChangelistDialog2" timestamp="1581780455545">
+    <state x="360" y="7" width="805" height="761" key="CommitChangelistDialog2" timestamp="1582210365600">
       <screen x="0" y="0" width="1366" height="768" />
     </state>
-    <state x="360" y="7" width="805" height="761" key="CommitChangelistDialog2/0.0.1366.768@0.0.1366.768" timestamp="1581780455545" />
+    <state x="360" y="7" width="805" height="761" key="CommitChangelistDialog2/0.0.1366.768@0.0.1366.768" timestamp="1582210365600" />
     <state x="1957" y="136" width="728" height="799" key="CommitChangelistDialog2/0.0.3286.1080@0.0.3286.1080" timestamp="1579681270047" />
     <state x="100" y="99" width="1166" height="569" key="DiffContextDialog" timestamp="1581741235383">
       <screen x="0" y="0" width="1366" height="768" />
     </state>
     <state x="100" y="99" width="1166" height="569" key="DiffContextDialog/0.0.1366.768@0.0.1366.768" timestamp="1581741235383" />
-    <state x="461" y="138" width="424" height="477" key="FileChooserDialogImpl" timestamp="1581436536422">
+    <state x="461" y="138" width="424" height="477" key="FileChooserDialogImpl" timestamp="1582210369112">
       <screen x="0" y="0" width="1366" height="768" />
     </state>
-    <state x="461" y="138" width="424" height="477" key="FileChooserDialogImpl/0.0.1366.768@0.0.1366.768" timestamp="1581436536422" />
-    <state width="1324" height="100" key="GridCell.Tab.0.bottom" timestamp="1581778314918">
+    <state x="461" y="138" width="424" height="477" key="FileChooserDialogImpl/0.0.1366.768@0.0.1366.768" timestamp="1582210369112" />
+    <state x="506" y="287" key="Github.CreateGistDialog" timestamp="1582123809918">
       <screen x="0" y="0" width="1366" height="768" />
     </state>
-    <state width="1324" height="100" key="GridCell.Tab.0.bottom/0.0.1366.768@0.0.1366.768" timestamp="1581778314918" />
-    <state width="1324" height="100" key="GridCell.Tab.0.center" timestamp="1581778314917">
+    <state x="506" y="287" key="Github.CreateGistDialog/0.0.1366.768@0.0.1366.768" timestamp="1582123809918" />
+    <state x="278" y="45" width="800" height="670" key="GrepConsoleSettings" timestamp="1582123902265">
       <screen x="0" y="0" width="1366" height="768" />
     </state>
-    <state width="1324" height="100" key="GridCell.Tab.0.center/0.0.1366.768@0.0.1366.768" timestamp="1581778314917" />
-    <state width="1324" height="100" key="GridCell.Tab.0.left" timestamp="1581778314916">
+    <state x="278" y="45" width="800" height="670" key="GrepConsoleSettings/0.0.1366.768@0.0.1366.768" timestamp="1582123902265" />
+    <state width="1324" height="400" key="GridCell.Tab.0.bottom" timestamp="1582201743440">
       <screen x="0" y="0" width="1366" height="768" />
     </state>
-    <state width="1324" height="100" key="GridCell.Tab.0.left/0.0.1366.768@0.0.1366.768" timestamp="1581778314916" />
-    <state width="1324" height="100" key="GridCell.Tab.0.right" timestamp="1581778314917">
+    <state width="1324" height="400" key="GridCell.Tab.0.bottom/0.0.1366.768@0.0.1366.768" timestamp="1582201743440" />
+    <state width="1324" height="400" key="GridCell.Tab.0.center" timestamp="1582201743439">
       <screen x="0" y="0" width="1366" height="768" />
     </state>
-    <state width="1324" height="100" key="GridCell.Tab.0.right/0.0.1366.768@0.0.1366.768" timestamp="1581778314917" />
+    <state width="1324" height="400" key="GridCell.Tab.0.center/0.0.1366.768@0.0.1366.768" timestamp="1582201743439" />
+    <state width="1324" height="400" key="GridCell.Tab.0.left" timestamp="1582201743439">
+      <screen x="0" y="0" width="1366" height="768" />
+    </state>
+    <state width="1324" height="400" key="GridCell.Tab.0.left/0.0.1366.768@0.0.1366.768" timestamp="1582201743439" />
+    <state width="1324" height="400" key="GridCell.Tab.0.right" timestamp="1582201743439">
+      <screen x="0" y="0" width="1366" height="768" />
+    </state>
+    <state width="1324" height="400" key="GridCell.Tab.0.right/0.0.1366.768@0.0.1366.768" timestamp="1582201743439" />
     <state x="216" y="41" width="924" height="677" key="Maven.ArtifactSearchDialog" timestamp="1581650734082">
       <screen x="0" y="0" width="1366" height="768" />
     </state>
     <state x="216" y="41" width="924" height="677" key="Maven.ArtifactSearchDialog/0.0.1366.768@0.0.1366.768" timestamp="1581650734082" />
-    <state x="166" y="0" width="1024" height="761" key="SettingsEditor" timestamp="1581780490901">
+    <state x="192" y="0" width="1024" height="761" key="SettingsEditor" timestamp="1582210665256">
       <screen x="0" y="0" width="1366" height="768" />
     </state>
-    <state x="166" y="0" width="1024" height="761" key="SettingsEditor/0.0.1366.768@0.0.1366.768" timestamp="1581780490901" />
-    <state x="278" y="119" width="800" height="521" key="Vcs.Push.Dialog.v2" timestamp="1581702237294">
+    <state x="192" y="0" width="1024" height="761" key="SettingsEditor/0.0.1366.768@0.0.1366.768" timestamp="1582210665256" />
+    <state x="278" y="119" width="800" height="521" key="Vcs.Push.Dialog.v2" timestamp="1581780579192">
       <screen x="0" y="0" width="1366" height="768" />
     </state>
-    <state x="278" y="119" width="800" height="521" key="Vcs.Push.Dialog.v2/0.0.1366.768@0.0.1366.768" timestamp="1581702237294" />
+    <state x="278" y="119" width="800" height="521" key="Vcs.Push.Dialog.v2/0.0.1366.768@0.0.1366.768" timestamp="1581780579192" />
     <state x="382" y="211" key="com.intellij.ide.util.TipDialog" timestamp="1581780346865">
       <screen x="0" y="0" width="1366" height="768" />
     </state>
     <state x="382" y="211" key="com.intellij.ide.util.TipDialog/0.0.1366.768@0.0.1366.768" timestamp="1581780346865" />
+    <state x="1024" y="367" width="647" height="730" key="dock-window-1" timestamp="1582114945350">
+      <screen x="0" y="0" width="1366" height="768" />
+    </state>
+    <state x="1024" y="367" width="647" height="730" key="dock-window-1/0.0.1366.768@0.0.1366.768" timestamp="1582114945350" />
     <state x="416" y="154" width="524" height="452" key="extract.method.dialog" timestamp="1581689922820">
       <screen x="0" y="0" width="1366" height="768" />
     </state>
@@ -234,10 +263,14 @@
       <screen x="0" y="0" width="1366" height="768" />
     </state>
     <state x="94" y="82" width="1168" height="596" key="new project wizard/0.0.1366.768@0.0.1366.768" timestamp="1581436545592" />
-    <state x="827" y="169" width="672" height="483" key="search.everywhere.popup" timestamp="1581780066179">
+    <state x="393" y="16" width="569" height="728" key="refactoring.ChangeSignatureDialog" timestamp="1582200493274">
       <screen x="0" y="0" width="1366" height="768" />
     </state>
-    <state x="827" y="169" width="672" height="483" key="search.everywhere.popup/0.0.1366.768@0.0.1366.768" timestamp="1581780066179" />
+    <state x="393" y="16" width="569" height="728" key="refactoring.ChangeSignatureDialog/0.0.1366.768@0.0.1366.768" timestamp="1582200493274" />
+    <state x="827" y="169" width="672" height="483" key="search.everywhere.popup" timestamp="1582126522298">
+      <screen x="0" y="0" width="1366" height="768" />
+    </state>
+    <state x="827" y="169" width="672" height="483" key="search.everywhere.popup/0.0.1366.768@0.0.1366.768" timestamp="1582126522298" />
     <state x="1989" y="238" width="672" height="678" key="search.everywhere.popup/0.0.3286.1080@0.0.3286.1080" timestamp="1579680347395" />
   </component>
 </project>

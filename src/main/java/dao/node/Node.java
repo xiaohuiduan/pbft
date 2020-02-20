@@ -41,7 +41,6 @@ public class Node extends NodeBasicInfo{
     }
     private static Node node = new Node();
 
-    private Node(){}
     /**
      * 判断结点是否运行
      */

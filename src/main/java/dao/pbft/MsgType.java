@@ -1,7 +1,4 @@
 package dao.pbft;
-
-import org.omg.CORBA.PUBLIC_MEMBER;
-
 /**
  * //                            _ooOoo_
  * //                           o8888888o
@@ -56,8 +53,7 @@ public class MsgType {
     public static final int COMMIT = 3;
 
     /**
-     * 回复阶段 ？？？
+     * ip消息回复回复阶段
      */
-    public static final int REPLY = 4;
-
+    public static final int IP_REPLY = 4;
 }
