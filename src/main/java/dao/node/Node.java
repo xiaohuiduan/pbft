@@ -39,6 +39,8 @@ public class Node extends NodeBasicInfo{
     public static Node getInstance(){
         return node;
     }
+
+    private Node(){}
     private static Node node = new Node();
 
     /**
