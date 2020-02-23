@@ -1,9 +1,7 @@
 package p2p.client;
 
-import com.alibaba.fastjson.JSON;
 import config.AllNodeCommonMsg;
 import dao.node.Node;
-import dao.node.NodeAddress;
 import dao.pbft.MsgCollection;
 import dao.pbft.MsgType;
 import dao.pbft.PbftMsg;
@@ -77,8 +75,8 @@ public class ClientAction {
                 case MsgType.CHANGE_VIEW:
                     onChangeView(msg);
                     break;
-                case MsgType.PRE_PREPARE:
-                    prePrepare(msg);
+                case MsgType.PREPARE:
+                    prepare(msg);
                     break;
                 case MsgType.COMMIT:
                     commit(msg);
@@ -104,7 +102,7 @@ public class ClientAction {
      *
      * @param msg
      */
-    private void prePrepare(PbftMsg msg) {
+    private void prepare(PbftMsg msg) {
         ClientUtil.clientPublish(msg);
     }
 

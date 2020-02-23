@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="6bd61894-b69e-4acb-865c-de791438e846" name="Default Changelist" comment="更换ip.json文件位置">
+    <list default="true" id="6bd61894-b69e-4acb-865c-de791438e846" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/p2p/client/ClientAction.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/p2p/client/ClientAction.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -112,7 +112,10 @@
       <workItem from="1581758134034" duration="3285000" />
       <workItem from="1581767075079" duration="7856000" />
       <workItem from="1581780318163" duration="594000" />
-      <workItem from="1582040833538" duration="24023000" />
+      <workItem from="1582040833538" duration="24764000" />
+      <workItem from="1582259453459" duration="1248000" />
+      <workItem from="1582268190495" duration="878000" />
+      <workItem from="1582471879346" duration="1477000" />
     </task>
     <task id="LOCAL-00001" summary="完成一部分的消息类型定义">
       <created>1579681270431</created>
@@ -156,7 +159,14 @@
       <option name="project" value="LOCAL" />
       <updated>1582214449083</updated>
     </task>
-    <option name="localTasksCounter" value="7" />
+    <task id="LOCAL-00007" summary=":arrow_up: log4j依赖升级">
+      <created>1582216123591</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1582216123591</updated>
+    </task>
+    <option name="localTasksCounter" value="8" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -169,7 +179,8 @@
     <MESSAGE value=":bug: 修复 BUG 节点加入测试通过" />
     <MESSAGE value=":beers:" />
     <MESSAGE value="更换ip.json文件位置" />
-    <option name="LAST_COMMIT_MESSAGE" value="更换ip.json文件位置" />
+    <MESSAGE value=":arrow_up: log4j依赖升级" />
+    <option name="LAST_COMMIT_MESSAGE" value=":arrow_up: log4j依赖升级" />
   </component>
   <component name="WindowStateProjectService">
     <state x="278" y="45" width="800" height="670" key="#Project_Structure" timestamp="1582114017011">
@@ -193,6 +204,10 @@
       <screen x="0" y="0" width="1366" height="768" />
     </state>
     <state x="534" y="275" width="287" height="209" key="#com.intellij.ide.util.projectWizard.JdkChooserPanel.MyDialog/0.0.1366.768@0.0.1366.768" timestamp="1579675658018" />
+    <state x="366" y="116" width="624" height="528" key="#com.intellij.openapi.updateSettings.impl.PluginUpdateInfoDialog" timestamp="1582268130391">
+      <screen x="0" y="0" width="1366" height="768" />
+    </state>
+    <state x="366" y="116" width="624" height="528" key="#com.intellij.openapi.updateSettings.impl.PluginUpdateInfoDialog/0.0.1366.768@0.0.1366.768" timestamp="1582268130391" />
     <state x="390" y="71" width="576" height="617" key="#com.intellij.refactoring.encapsulateFields.EncalpsulateFieldsDialog" timestamp="1581687534075">
       <screen x="0" y="0" width="1366" height="768" />
     </state>
@@ -201,10 +216,10 @@
       <screen x="0" y="0" width="1366" height="768" />
     </state>
     <state x="410" y="0" width="536" height="761" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog/0.0.1366.768@0.0.1366.768" timestamp="1581304299988" />
-    <state x="360" y="7" width="805" height="761" key="CommitChangelistDialog2" timestamp="1582216081754">
+    <state x="360" y="7" width="805" height="761" key="CommitChangelistDialog2" timestamp="1582216123336">
       <screen x="0" y="0" width="1366" height="768" />
     </state>
-    <state x="360" y="7" width="805" height="761" key="CommitChangelistDialog2/0.0.1366.768@0.0.1366.768" timestamp="1582216081754" />
+    <state x="360" y="7" width="805" height="761" key="CommitChangelistDialog2/0.0.1366.768@0.0.1366.768" timestamp="1582216123336" />
     <state x="1957" y="136" width="728" height="799" key="CommitChangelistDialog2/0.0.3286.1080@0.0.3286.1080" timestamp="1579681270047" />
     <state x="100" y="99" width="1166" height="569" key="DiffContextDialog" timestamp="1581741235383">
       <screen x="0" y="0" width="1366" height="768" />
@@ -246,14 +261,14 @@
       <screen x="0" y="0" width="1366" height="768" />
     </state>
     <state x="192" y="0" width="1024" height="761" key="SettingsEditor/0.0.1366.768@0.0.1366.768" timestamp="1582210665256" />
-    <state x="278" y="119" width="800" height="521" key="Vcs.Push.Dialog.v2" timestamp="1582210713708">
+    <state x="278" y="119" width="800" height="521" key="Vcs.Push.Dialog.v2" timestamp="1582216132818">
       <screen x="0" y="0" width="1366" height="768" />
     </state>
-    <state x="278" y="119" width="800" height="521" key="Vcs.Push.Dialog.v2/0.0.1366.768@0.0.1366.768" timestamp="1582210713708" />
-    <state x="382" y="211" key="com.intellij.ide.util.TipDialog" timestamp="1581780346865">
+    <state x="278" y="119" width="800" height="521" key="Vcs.Push.Dialog.v2/0.0.1366.768@0.0.1366.768" timestamp="1582216132818" />
+    <state x="382" y="211" key="com.intellij.ide.util.TipDialog" timestamp="1582472853133">
       <screen x="0" y="0" width="1366" height="768" />
     </state>
-    <state x="382" y="211" key="com.intellij.ide.util.TipDialog/0.0.1366.768@0.0.1366.768" timestamp="1581780346865" />
+    <state x="382" y="211" key="com.intellij.ide.util.TipDialog/0.0.1366.768@0.0.1366.768" timestamp="1582472853133" />
     <state x="1024" y="367" width="647" height="730" key="dock-window-1" timestamp="1582114945350">
       <screen x="0" y="0" width="1366" height="768" />
     </state>
