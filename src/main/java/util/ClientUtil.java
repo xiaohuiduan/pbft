@@ -2,6 +2,7 @@ package util;
 
 import com.alibaba.fastjson.JSON;
 import config.AllNodeCommonMsg;
+import dao.node.Node;
 import dao.node.NodeAddress;
 import dao.pbft.MsgType;
 import dao.pbft.PbftMsg;
@@ -10,7 +11,6 @@ import org.tio.client.ClientChannelContext;
 import org.tio.client.ClientTioConfig;
 import org.tio.client.ReconnConf;
 import org.tio.client.TioClient;
-import org.tio.core.Node;
 import org.tio.core.Tio;
 import p2p.P2PConnectionMsg;
 import p2p.client.P2PClientLinstener;
@@ -50,7 +50,6 @@ import java.io.UnsupportedEncodingException;
 @Slf4j
 public class ClientUtil {
 
-
     /**
      * client 的配置
      */
@@ -66,7 +65,7 @@ public class ClientUtil {
         ClientChannelContext context;
         try {
             TioClient client = new TioClient(clientTioConfig);
-            context = client.connect(new Node(ip, port), Const.TIMEOUT);
+            context = client.connect(new org.tio.core.Node(ip, port), Const.TIMEOUT);
             return context;
         } catch (Exception e) {
             log.error("%s：%d连接错误" + e.getMessage());
@@ -133,5 +132,19 @@ public class ClientUtil {
         ipMsg.setBody(JSON.toJSONString(address));
         ClientUtil.clientPublish(ipMsg);
         log.info("广播ip消息");
+    }
+
+    /**
+     * 主节点进行广播
+     * @param msg
+     */
+    public static void prePrepare(PbftMsg msg){
+        Node node = Node.getInstance();
+        if (node.getIndex() != AllNodeCommonMsg.getPriIndex()){
+            log.error("该节点非主节点，不能发送preprepare消息");
+            return;
+        }
+        msg.setMsgType(MsgType.PRE_PREPARE);
+        ClientUtil.clientPublish(msg);
     }
 }

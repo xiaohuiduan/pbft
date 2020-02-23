@@ -149,12 +149,12 @@ public class ServerAction {
      * @param msg
      */
     private void prePrepare(PbftMsg msg) {
-        msg.setMsgType(MsgType.PREPARE);
         msgCollection.getVotePrePrepare().add(msg);
         if (!PbftUtil.checkMsg(msg)) {
             return;
         }
 
+        msg.setMsgType(MsgType.PREPARE);
         try {
             msgCollection.getMsgQueue().put(msg);
             ClientAction.getInstance().doAction(null);

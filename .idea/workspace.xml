@@ -3,7 +3,8 @@
   <component name="ChangeListManager">
     <list default="true" id="6bd61894-b69e-4acb-865c-de791438e846" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/p2p/client/ClientAction.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/p2p/client/ClientAction.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/p2p/server/ServerAction.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/p2p/server/ServerAction.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/util/ClientUtil.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/util/ClientUtil.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -115,7 +116,7 @@
       <workItem from="1582040833538" duration="24764000" />
       <workItem from="1582259453459" duration="1248000" />
       <workItem from="1582268190495" duration="878000" />
-      <workItem from="1582471879346" duration="1477000" />
+      <workItem from="1582471879346" duration="1946000" />
     </task>
     <task id="LOCAL-00001" summary="完成一部分的消息类型定义">
       <created>1579681270431</created>
@@ -166,7 +167,14 @@
       <option name="project" value="LOCAL" />
       <updated>1582216123591</updated>
     </task>
-    <option name="localTasksCounter" value="8" />
+    <task id="LOCAL-00008" summary=":pencil2: 修复拼写错误">
+      <created>1582478171774</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1582478171774</updated>
+    </task>
+    <option name="localTasksCounter" value="9" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -180,7 +188,8 @@
     <MESSAGE value=":beers:" />
     <MESSAGE value="更换ip.json文件位置" />
     <MESSAGE value=":arrow_up: log4j依赖升级" />
-    <option name="LAST_COMMIT_MESSAGE" value=":arrow_up: log4j依赖升级" />
+    <MESSAGE value=":pencil2: 修复拼写错误" />
+    <option name="LAST_COMMIT_MESSAGE" value=":pencil2: 修复拼写错误" />
   </component>
   <component name="WindowStateProjectService">
     <state x="278" y="45" width="800" height="670" key="#Project_Structure" timestamp="1582114017011">
@@ -216,10 +225,10 @@
       <screen x="0" y="0" width="1366" height="768" />
     </state>
     <state x="410" y="0" width="536" height="761" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog/0.0.1366.768@0.0.1366.768" timestamp="1581304299988" />
-    <state x="360" y="7" width="805" height="761" key="CommitChangelistDialog2" timestamp="1582216123336">
+    <state x="360" y="7" width="805" height="761" key="CommitChangelistDialog2" timestamp="1582478171387">
       <screen x="0" y="0" width="1366" height="768" />
     </state>
-    <state x="360" y="7" width="805" height="761" key="CommitChangelistDialog2/0.0.1366.768@0.0.1366.768" timestamp="1582216123336" />
+    <state x="360" y="7" width="805" height="761" key="CommitChangelistDialog2/0.0.1366.768@0.0.1366.768" timestamp="1582478171387" />
     <state x="1957" y="136" width="728" height="799" key="CommitChangelistDialog2/0.0.3286.1080@0.0.3286.1080" timestamp="1579681270047" />
     <state x="100" y="99" width="1166" height="569" key="DiffContextDialog" timestamp="1581741235383">
       <screen x="0" y="0" width="1366" height="768" />
@@ -261,10 +270,10 @@
       <screen x="0" y="0" width="1366" height="768" />
     </state>
     <state x="192" y="0" width="1024" height="761" key="SettingsEditor/0.0.1366.768@0.0.1366.768" timestamp="1582210665256" />
-    <state x="278" y="119" width="800" height="521" key="Vcs.Push.Dialog.v2" timestamp="1582216132818">
+    <state x="278" y="119" width="800" height="521" key="Vcs.Push.Dialog.v2" timestamp="1582478186141">
       <screen x="0" y="0" width="1366" height="768" />
     </state>
-    <state x="278" y="119" width="800" height="521" key="Vcs.Push.Dialog.v2/0.0.1366.768@0.0.1366.768" timestamp="1582216132818" />
+    <state x="278" y="119" width="800" height="521" key="Vcs.Push.Dialog.v2/0.0.1366.768@0.0.1366.768" timestamp="1582478186141" />
     <state x="382" y="211" key="com.intellij.ide.util.TipDialog" timestamp="1582472853133">
       <screen x="0" y="0" width="1366" height="768" />
     </state>
