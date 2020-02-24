@@ -1,21 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="6bd61894-b69e-4acb-865c-de791438e846" name="Default Changelist" comment=":boom: 完善共识认证，使用UUID作为msg的唯一认证">
+    <list default="true" id="6bd61894-b69e-4acb-865c-de791438e846" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/imgs/1208.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/imgs/1211.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/imgs/1217.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/imgs/1224.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/imgs/normal-1582268688521.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/imgs/节点加入view同步.jpg" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/config/AllNodeCommonMsg.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/config/AllNodeCommonMsg.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/config/StartConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/config/StartConfig.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/dao/pbft/MsgCollection.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/dao/pbft/MsgCollection.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/dao/pbft/PbftMsg.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/dao/pbft/PbftMsg.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/p2p/P2PConnectionMsg.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/p2p/P2PConnectionMsg.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/p2p/client/ClientAction.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/p2p/client/ClientAction.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/p2p/client/P2pClientAioHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/p2p/client/P2pClientAioHandler.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/p2p/server/P2PServerAioHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/p2p/server/P2PServerAioHandler.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/p2p/server/ServerAction.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/p2p/server/ServerAction.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/p2p/server/ServerListener.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/p2p/server/ServerListener.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/util/ClientUtil.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/util/ClientUtil.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/util/PbftUtil.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/util/PbftUtil.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -65,7 +59,7 @@
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/src/main/resources" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/imgs" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
     <property name="project.structure.last.edited" value="Modules" />
@@ -75,6 +69,7 @@
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/imgs" />
       <recent name="$PROJECT_DIR$/src/main/resources" />
       <recent name="$PROJECT_DIR$/src/main/java/p2p" />
     </key>
@@ -128,7 +123,7 @@
       <workItem from="1582259453459" duration="1248000" />
       <workItem from="1582268190495" duration="878000" />
       <workItem from="1582471879346" duration="2293000" />
-      <workItem from="1582510249157" duration="8010000" />
+      <workItem from="1582510249157" duration="9278000" />
     </task>
     <task id="LOCAL-00001" summary="完成一部分的消息类型定义">
       <created>1579681270431</created>
@@ -193,7 +188,14 @@
       <option name="project" value="LOCAL" />
       <updated>1582478782881</updated>
     </task>
-    <option name="localTasksCounter" value="10" />
+    <task id="LOCAL-00010" summary=":boom: 完善共识认证，使用UUID作为msg的唯一认证">
+      <created>1582553422488</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1582553422488</updated>
+    </task>
+    <option name="localTasksCounter" value="11" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -246,10 +248,10 @@
       <screen x="0" y="0" width="1366" height="768" />
     </state>
     <state x="410" y="0" width="536" height="761" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog/0.0.1366.768@0.0.1366.768" timestamp="1581304299988" />
-    <state x="296" y="7" width="805" height="761" key="CommitChangelistDialog2" timestamp="1582553407594">
+    <state x="296" y="7" width="805" height="761" key="CommitChangelistDialog2" timestamp="1582553422225">
       <screen x="0" y="0" width="1366" height="768" />
     </state>
-    <state x="296" y="7" width="805" height="761" key="CommitChangelistDialog2/0.0.1366.768@0.0.1366.768" timestamp="1582553407594" />
+    <state x="296" y="7" width="805" height="761" key="CommitChangelistDialog2/0.0.1366.768@0.0.1366.768" timestamp="1582553422225" />
     <state x="1957" y="136" width="728" height="799" key="CommitChangelistDialog2/0.0.3286.1080@0.0.3286.1080" timestamp="1579681270047" />
     <state x="100" y="99" width="1166" height="569" key="DiffContextDialog" timestamp="1581741235383">
       <screen x="0" y="0" width="1366" height="768" />
@@ -291,10 +293,10 @@
       <screen x="0" y="0" width="1366" height="768" />
     </state>
     <state x="192" y="0" width="1024" height="761" key="SettingsEditor/0.0.1366.768@0.0.1366.768" timestamp="1582210665256" />
-    <state x="278" y="119" width="800" height="521" key="Vcs.Push.Dialog.v2" timestamp="1582478186141">
+    <state x="278" y="119" width="800" height="521" key="Vcs.Push.Dialog.v2" timestamp="1582553438460">
       <screen x="0" y="0" width="1366" height="768" />
     </state>
-    <state x="278" y="119" width="800" height="521" key="Vcs.Push.Dialog.v2/0.0.1366.768@0.0.1366.768" timestamp="1582478186141" />
+    <state x="278" y="119" width="800" height="521" key="Vcs.Push.Dialog.v2/0.0.1366.768@0.0.1366.768" timestamp="1582553438460" />
     <state x="382" y="211" key="com.intellij.ide.util.TipDialog" timestamp="1582510280334">
       <screen x="0" y="0" width="1366" height="768" />
     </state>
