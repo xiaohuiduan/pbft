@@ -126,7 +126,7 @@ public class ClientAction {
             return;
         }
         long count = collection.getViewNumCount().incrementAndGet(msg.getViewNum());
-        if (count >= 2 * AllNodeCommonMsg.getMaxf() + 1 && !node.isViewOK()) {
+        if (count >= AllNodeCommonMsg.getAgreeNum() && !node.isViewOK()) {
             collection.getViewNumCount().clear();
             node.setViewOK(true);
             AllNodeCommonMsg.view = msg.getViewNum();

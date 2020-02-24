@@ -1,11 +1,8 @@
 package dao.pbft;
 
-import cn.hutool.core.date.DateUtil;
 import cn.hutool.core.util.IdUtil;
 import config.AllNodeCommonMsg;
 import lombok.Data;
-
-import java.util.Objects;
 
 /**
  * //                            _ooOoo_
@@ -85,26 +82,5 @@ public class PbftMsg {
         this.time = System.currentTimeMillis();
         this.id = IdUtil.randomUUID();
         this.viewNum = AllNodeCommonMsg.view;
-    }
-
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) {
-            return true;
-        }
-        if (o == null || getClass() != o.getClass()) {
-            return false;
-        }
-        PbftMsg msg = (PbftMsg) o;
-        return node == msg.node &&
-                time == msg.time &&
-                viewNum == msg.viewNum &&
-                body.equals(msg.body) &&
-                id.equals(msg.id);
-    }
-
-    @Override
-    public int hashCode() {
-        return Objects.hash(body, node, time, viewNum, id);
     }
 }

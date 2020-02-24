@@ -4,7 +4,6 @@ import com.google.common.collect.Sets;
 import com.google.common.util.concurrent.AtomicLongMap;
 import lombok.Data;
 
-import java.util.Map;
 import java.util.Set;
 import java.util.concurrent.BlockingQueue;
 import java.util.concurrent.LinkedBlockingQueue;
@@ -65,17 +64,17 @@ public class MsgCollection {
     /**
      * 预准备阶段
      */
-    private Set<PbftMsg> votePrePrepare = Sets.newConcurrentHashSet();
+    private Set<String> votePrePrepare = Sets.newConcurrentHashSet();
 
     /**
      * 准备阶段
      */
-    private AtomicLongMap<PbftMsg> agreePrepare = AtomicLongMap.create();
+    private AtomicLongMap<String> agreePrepare = AtomicLongMap.create();
 
     /**
      * commit阶段
      */
-    private AtomicLongMap<PbftMsg> agreeCommit = AtomicLongMap.create();
+    private AtomicLongMap<String> agreeCommit = AtomicLongMap.create();
 
 
 }

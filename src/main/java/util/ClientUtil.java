@@ -2,8 +2,9 @@ package util;
 
 import com.alibaba.fastjson.JSON;
 import config.AllNodeCommonMsg;
+import dao.bean.IpJson;
 import dao.node.Node;
-import dao.node.NodeAddress;
+import dao.pbft.MsgCollection;
 import dao.pbft.MsgType;
 import dao.pbft.PbftMsg;
 import lombok.extern.slf4j.Slf4j;
@@ -13,6 +14,7 @@ import org.tio.client.ReconnConf;
 import org.tio.client.TioClient;
 import org.tio.core.Tio;
 import p2p.P2PConnectionMsg;
+import p2p.client.ClientAction;
 import p2p.client.P2PClientLinstener;
 import p2p.client.P2pClientAioHandler;
 import p2p.common.Const;
@@ -103,6 +105,11 @@ public class ClientUtil {
      * @param msg
      */
     public static void clientPublish(PbftMsg msg) {
+        // 设置目标消息发送方
+        msg.setNode(Node.getInstance().getIndex());
+        // 设置消息的目标方 -1 代表all
+        msg.setToNode(-1);
+
         String jsonView = JSON.toJSONString(msg);
         MsgPacket msgPacket = new MsgPacket();
         for (ClientChannelContext client : P2PConnectionMsg.CLIENTS.values()) {
@@ -126,25 +133,45 @@ public class ClientUtil {
         PbftMsg ipMsg = new PbftMsg(MsgType.IP_REPLY, index);
         ipMsg.setViewNum(AllNodeCommonMsg.view);
         // 将节点消息数据发送过去
-        NodeAddress address = new NodeAddress();
-        address.setPort(port);
-        address.setIp(ip);
-        ipMsg.setBody(JSON.toJSONString(address));
+        IpJson ipJson = new IpJson();
+        ipJson.setIndex(index);
+        ipJson.setIp(ip);
+        ipJson.setPort(port);
+        ipMsg.setBody(JSON.toJSONString(ipJson));
         ClientUtil.clientPublish(ipMsg);
-        log.info("广播ip消息");
+        log.info(String.format("广播ip消息：%s", ipMsg));
     }
 
     /**
      * 主节点进行广播
+     *
      * @param msg
      */
-    public static void prePrepare(PbftMsg msg){
+    public static void prePrepare(PbftMsg msg) {
+        msg.setNode(Node.getInstance().getIndex());
+        msg.setToNode(-1);
+        msg.setViewNum(AllNodeCommonMsg.view);
+
         Node node = Node.getInstance();
-        if (node.getIndex() != AllNodeCommonMsg.getPriIndex()){
+        if (node.getIndex() != AllNodeCommonMsg.getPriIndex()) {
             log.error("该节点非主节点，不能发送preprepare消息");
             return;
         }
         msg.setMsgType(MsgType.PRE_PREPARE);
         ClientUtil.clientPublish(msg);
+
+        MsgCollection msgCollection = MsgCollection.getInstance();
+        msg.setMsgType(MsgType.PREPARE);
+        msgCollection.getVotePrePrepare().add(msg.getId());
+        if (!PbftUtil.checkMsg(msg)) {
+            return;
+        }
+        try {
+            msgCollection.getMsgQueue().put(msg);
+            ClientAction.getInstance().doAction(null);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+            return;
+        }
     }
 }

@@ -18,7 +18,6 @@ import p2p.common.MsgPacket;
 import util.ClientUtil;
 import util.PbftUtil;
 
-import javax.sound.midi.MidiSystem;
 import java.io.UnsupportedEncodingException;
 
 
@@ -105,11 +104,12 @@ public class ServerAction {
      */
     private void commit(PbftMsg msg) {
 
-        long count = collection.getAgreeCommit().incrementAndGet(msg);
+        long count = collection.getAgreeCommit().incrementAndGet(msg.getId());
 
-        if (count >= 2 * AllNodeCommonMsg.getMaxf() + 1) {
+        log.info(String.format("server接受到commit消息：%s", msg));
+        if (count >= AllNodeCommonMsg.getAgreeNum()) {
             log.info("数据符合，commit成功，数据可以生成块");
-            collection.getAgreeCommit().remove(msg);
+            collection.getAgreeCommit().remove(msg.getId());
             PbftUtil.save(msg);
         }
     }
@@ -120,16 +120,17 @@ public class ServerAction {
      * @param msg
      */
     private void prepare(PbftMsg msg) {
-        if (!msgCollection.getVotePrePrepare().contains(msg) || !PbftUtil.checkMsg(msg)) {
+        log.info(msgCollection.getVotePrePrepare().contains(msg)+">>>>");
+        if (!msgCollection.getVotePrePrepare().contains(msg.getId()) || !PbftUtil.checkMsg(msg)) {
             return;
         }
 
-        long count = collection.getAgreePrepare().incrementAndGet(msg);
-
-        if (count >= 2 * AllNodeCommonMsg.getMaxf() + 1) {
-            log.info("数据符合，进行commit操作");
-            collection.getVotePrePrepare().remove(msg);
-            collection.getAgreePrepare().remove(msg);
+        long count = collection.getAgreePrepare().incrementAndGet(msg.getId());
+        log.info(String.format("server接受到prepare消息：%s", msg));
+        if (count >= AllNodeCommonMsg.getAgreeNum()) {
+            log.info("数据符合，发送commit操作");
+            collection.getVotePrePrepare().remove(msg.getId());
+            collection.getAgreePrepare().remove(msg.getId());
 
             // 进入Commit阶段
             msg.setMsgType(MsgType.COMMIT);
@@ -149,7 +150,10 @@ public class ServerAction {
      * @param msg
      */
     private void prePrepare(PbftMsg msg) {
-        msgCollection.getVotePrePrepare().add(msg);
+
+        log.info(String.format("server接受到pre-prepare消息：%s", msg));
+
+        msgCollection.getVotePrePrepare().add(msg.getId());
         if (!PbftUtil.checkMsg(msg)) {
             return;
         }
@@ -176,7 +180,7 @@ public class ServerAction {
         }
         long count = collection.getViewNumCount().incrementAndGet(msg.getViewNum());
 
-        if (count >= 2 * AllNodeCommonMsg.getMaxf() + 1 && !node.isViewOK()) {
+        if (count >= AllNodeCommonMsg.getAgreeNum() && !node.isViewOK()) {
             collection.getViewNumCount().clear();
             node.setViewOK(true);
             AllNodeCommonMsg.view = msg.getViewNum();
@@ -194,12 +198,18 @@ public class ServerAction {
             String ipStr = msg.getBody();
             IpJson ipJson = JSON.parseObject(ipStr, IpJson.class);
             ClientChannelContext context = ClientUtil.clientConnect(ipJson.getIp(), ipJson.getPort());
+
+            NodeAddress address = new NodeAddress();
+            address.setIp(ipJson.getIp());
+            address.setPort(ipJson.getPort());
             NodeBasicInfo info = new NodeBasicInfo();
             info.setIndex(msg.getNode());
-            info.setAddress(new NodeAddress());
+            info.setAddress(address);
+            // 添加ip地址
             AllNodeCommonMsg.allNodeAddressMap.put(msg.getNode(), info);
             log.info(String.format("节点%s添加ip地址：%s", node, info));
             if (context != null) {
+                // 添加client
                 ClientUtil.addClient(msg.getNode(), context);
             }
         }

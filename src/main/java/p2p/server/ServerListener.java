@@ -1,6 +1,5 @@
 package p2p.server;
 
-import dao.pbft.MsgCollection;
 import lombok.extern.slf4j.Slf4j;
 import org.tio.core.ChannelContext;
 import org.tio.core.intf.Packet;

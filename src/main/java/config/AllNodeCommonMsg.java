@@ -1,7 +1,7 @@
 package config;
 
 import dao.node.NodeBasicInfo;
-import p2p.P2PConnectionMsg;
+import lombok.extern.slf4j.Slf4j;
 
 import java.util.concurrent.ConcurrentHashMap;
 
@@ -32,12 +32,8 @@ import java.util.concurrent.ConcurrentHashMap;
  * @data: 2020/1/22 下午3:27
  * @description: 所有的结点的需要相同的信息，（假如不相同，则需要同步）
  */
+@Slf4j
 public class AllNodeCommonMsg {
-
-    /**
-     * 最大失效节点
-     */
-    private int maxf;
 
     /**
      * 获得最大失效结点的数量
@@ -45,7 +41,11 @@ public class AllNodeCommonMsg {
      * @return
      */
     public static int getMaxf() {
-        return (size - 1) / 3;
+        return (getSize() - 1) / 3;
+    }
+
+    public static int getAgreeNum(){
+        return 2 * AllNodeCommonMsg.getMaxf() + 1;
     }
 
     /**
@@ -54,21 +54,24 @@ public class AllNodeCommonMsg {
      * @return
      */
     public static int getPriIndex() {
-        return (view + 1) % size;
+        return view % getSize();
     }
 
     /**
      * 保存结点对应的ip地址和端口号
      */
-    public static ConcurrentHashMap<Integer, NodeBasicInfo> allNodeAddressMap = new ConcurrentHashMap<>(2 << 10) ;
+    public static ConcurrentHashMap<Integer, NodeBasicInfo> allNodeAddressMap = new ConcurrentHashMap<>(2 << 10);
 
     /**
      * view的值，0代表view未被初始化
      * 当前视图的编号，通过这个编号可以算出主节点的序号
      */
     public volatile static int view = 0;
+
     /**
-     * 区块链中结点的总结点数
+     * @return 区块链中结点的总结点数
      */
-    public static int size = allNodeAddressMap.size()+1;
+    public static int getSize() {
+        return allNodeAddressMap.size() + 1;
+    }
 }

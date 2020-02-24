@@ -4,7 +4,6 @@ import com.alibaba.fastjson.JSON;
 import dao.pbft.PbftMsg;
 import lombok.extern.slf4j.Slf4j;
 import org.tio.core.ChannelContext;
-import org.tio.core.Tio;
 import org.tio.core.TioConfig;
 import org.tio.core.exception.AioDecodeException;
 import org.tio.core.intf.Packet;

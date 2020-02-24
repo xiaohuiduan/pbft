@@ -1,10 +1,21 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="6bd61894-b69e-4acb-865c-de791438e846" name="Default Changelist" comment="">
+    <list default="true" id="6bd61894-b69e-4acb-865c-de791438e846" name="Default Changelist" comment=":boom: 完善共识认证，使用UUID作为msg的唯一认证">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/config/AllNodeCommonMsg.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/config/AllNodeCommonMsg.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/config/StartConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/config/StartConfig.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/dao/pbft/MsgCollection.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/dao/pbft/MsgCollection.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/dao/pbft/PbftMsg.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/dao/pbft/PbftMsg.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/p2p/P2PConnectionMsg.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/p2p/P2PConnectionMsg.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/p2p/client/ClientAction.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/p2p/client/ClientAction.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/p2p/client/P2pClientAioHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/p2p/client/P2pClientAioHandler.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/p2p/server/P2PServerAioHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/p2p/server/P2PServerAioHandler.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/p2p/server/ServerAction.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/p2p/server/ServerAction.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/p2p/server/ServerListener.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/p2p/server/ServerListener.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/util/ClientUtil.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/util/ClientUtil.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/util/PbftUtil.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/util/PbftUtil.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -116,7 +127,8 @@
       <workItem from="1582040833538" duration="24764000" />
       <workItem from="1582259453459" duration="1248000" />
       <workItem from="1582268190495" duration="878000" />
-      <workItem from="1582471879346" duration="1946000" />
+      <workItem from="1582471879346" duration="2293000" />
+      <workItem from="1582510249157" duration="8010000" />
     </task>
     <task id="LOCAL-00001" summary="完成一部分的消息类型定义">
       <created>1579681270431</created>
@@ -174,7 +186,14 @@
       <option name="project" value="LOCAL" />
       <updated>1582478171774</updated>
     </task>
-    <option name="localTasksCounter" value="9" />
+    <task id="LOCAL-00009" summary=":bug: 修复 BUG">
+      <created>1582478782881</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1582478782881</updated>
+    </task>
+    <option name="localTasksCounter" value="10" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -189,7 +208,9 @@
     <MESSAGE value="更换ip.json文件位置" />
     <MESSAGE value=":arrow_up: log4j依赖升级" />
     <MESSAGE value=":pencil2: 修复拼写错误" />
-    <option name="LAST_COMMIT_MESSAGE" value=":pencil2: 修复拼写错误" />
+    <MESSAGE value=":bug: 修复 BUG" />
+    <MESSAGE value=":boom: 完善共识认证，使用UUID作为msg的唯一认证" />
+    <option name="LAST_COMMIT_MESSAGE" value=":boom: 完善共识认证，使用UUID作为msg的唯一认证" />
   </component>
   <component name="WindowStateProjectService">
     <state x="278" y="45" width="800" height="670" key="#Project_Structure" timestamp="1582114017011">
@@ -225,10 +246,10 @@
       <screen x="0" y="0" width="1366" height="768" />
     </state>
     <state x="410" y="0" width="536" height="761" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog/0.0.1366.768@0.0.1366.768" timestamp="1581304299988" />
-    <state x="360" y="7" width="805" height="761" key="CommitChangelistDialog2" timestamp="1582478171387">
+    <state x="296" y="7" width="805" height="761" key="CommitChangelistDialog2" timestamp="1582553407594">
       <screen x="0" y="0" width="1366" height="768" />
     </state>
-    <state x="360" y="7" width="805" height="761" key="CommitChangelistDialog2/0.0.1366.768@0.0.1366.768" timestamp="1582478171387" />
+    <state x="296" y="7" width="805" height="761" key="CommitChangelistDialog2/0.0.1366.768@0.0.1366.768" timestamp="1582553407594" />
     <state x="1957" y="136" width="728" height="799" key="CommitChangelistDialog2/0.0.3286.1080@0.0.3286.1080" timestamp="1579681270047" />
     <state x="100" y="99" width="1166" height="569" key="DiffContextDialog" timestamp="1581741235383">
       <screen x="0" y="0" width="1366" height="768" />
@@ -246,22 +267,22 @@
       <screen x="0" y="0" width="1366" height="768" />
     </state>
     <state x="278" y="45" width="800" height="670" key="GrepConsoleSettings/0.0.1366.768@0.0.1366.768" timestamp="1582123902265" />
-    <state width="1324" height="260" key="GridCell.Tab.0.bottom" timestamp="1582216069284">
+    <state width="1324" height="312" key="GridCell.Tab.0.bottom" timestamp="1582553087141">
       <screen x="0" y="0" width="1366" height="768" />
     </state>
-    <state width="1324" height="260" key="GridCell.Tab.0.bottom/0.0.1366.768@0.0.1366.768" timestamp="1582216069284" />
-    <state width="1324" height="260" key="GridCell.Tab.0.center" timestamp="1582216069284">
+    <state width="1324" height="312" key="GridCell.Tab.0.bottom/0.0.1366.768@0.0.1366.768" timestamp="1582553087141" />
+    <state width="1324" height="312" key="GridCell.Tab.0.center" timestamp="1582553087140">
       <screen x="0" y="0" width="1366" height="768" />
     </state>
-    <state width="1324" height="260" key="GridCell.Tab.0.center/0.0.1366.768@0.0.1366.768" timestamp="1582216069284" />
-    <state width="1324" height="260" key="GridCell.Tab.0.left" timestamp="1582216069283">
+    <state width="1324" height="312" key="GridCell.Tab.0.center/0.0.1366.768@0.0.1366.768" timestamp="1582553087140" />
+    <state width="1324" height="312" key="GridCell.Tab.0.left" timestamp="1582553087139">
       <screen x="0" y="0" width="1366" height="768" />
     </state>
-    <state width="1324" height="260" key="GridCell.Tab.0.left/0.0.1366.768@0.0.1366.768" timestamp="1582216069283" />
-    <state width="1324" height="260" key="GridCell.Tab.0.right" timestamp="1582216069284">
+    <state width="1324" height="312" key="GridCell.Tab.0.left/0.0.1366.768@0.0.1366.768" timestamp="1582553087139" />
+    <state width="1324" height="312" key="GridCell.Tab.0.right" timestamp="1582553087140">
       <screen x="0" y="0" width="1366" height="768" />
     </state>
-    <state width="1324" height="260" key="GridCell.Tab.0.right/0.0.1366.768@0.0.1366.768" timestamp="1582216069284" />
+    <state width="1324" height="312" key="GridCell.Tab.0.right/0.0.1366.768@0.0.1366.768" timestamp="1582553087140" />
     <state x="216" y="41" width="924" height="677" key="Maven.ArtifactSearchDialog" timestamp="1581650734082">
       <screen x="0" y="0" width="1366" height="768" />
     </state>
@@ -274,10 +295,10 @@
       <screen x="0" y="0" width="1366" height="768" />
     </state>
     <state x="278" y="119" width="800" height="521" key="Vcs.Push.Dialog.v2/0.0.1366.768@0.0.1366.768" timestamp="1582478186141" />
-    <state x="382" y="211" key="com.intellij.ide.util.TipDialog" timestamp="1582472853133">
+    <state x="382" y="211" key="com.intellij.ide.util.TipDialog" timestamp="1582510280334">
       <screen x="0" y="0" width="1366" height="768" />
     </state>
-    <state x="382" y="211" key="com.intellij.ide.util.TipDialog/0.0.1366.768@0.0.1366.768" timestamp="1582472853133" />
+    <state x="382" y="211" key="com.intellij.ide.util.TipDialog/0.0.1366.768@0.0.1366.768" timestamp="1582510280334" />
     <state x="1024" y="367" width="647" height="730" key="dock-window-1" timestamp="1582114945350">
       <screen x="0" y="0" width="1366" height="768" />
     </state>
@@ -286,6 +307,10 @@
       <screen x="0" y="0" width="1366" height="768" />
     </state>
     <state x="416" y="154" width="524" height="452" key="extract.method.dialog/0.0.1366.768@0.0.1366.768" timestamp="1581689922820" />
+    <state x="387" y="0" width="592" height="768" key="find.popup" timestamp="1582552819753">
+      <screen x="0" y="0" width="1366" height="768" />
+    </state>
+    <state x="387" y="0" width="592" height="768" key="find.popup/0.0.1366.768@0.0.1366.768" timestamp="1582552819753" />
     <state x="94" y="82" width="1168" height="596" key="new project wizard" timestamp="1581436545592">
       <screen x="0" y="0" width="1366" height="768" />
     </state>
@@ -294,10 +319,10 @@
       <screen x="0" y="0" width="1366" height="768" />
     </state>
     <state x="393" y="16" width="569" height="728" key="refactoring.ChangeSignatureDialog/0.0.1366.768@0.0.1366.768" timestamp="1582200493274" />
-    <state x="827" y="169" width="672" height="483" key="search.everywhere.popup" timestamp="1582215049180">
+    <state x="827" y="169" width="672" height="483" key="search.everywhere.popup" timestamp="1582513333175">
       <screen x="0" y="0" width="1366" height="768" />
     </state>
-    <state x="827" y="169" width="672" height="483" key="search.everywhere.popup/0.0.1366.768@0.0.1366.768" timestamp="1582215049180" />
+    <state x="827" y="169" width="672" height="483" key="search.everywhere.popup/0.0.1366.768@0.0.1366.768" timestamp="1582513333175" />
     <state x="1989" y="238" width="672" height="678" key="search.everywhere.popup/0.0.3286.1080@0.0.3286.1080" timestamp="1579680347395" />
   </component>
 </project>

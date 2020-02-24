@@ -1,7 +1,6 @@
 package p2p.client;
 
 import com.alibaba.fastjson.JSON;
-import com.alibaba.fastjson.JSONObject;
 import dao.pbft.MsgCollection;
 import dao.pbft.PbftMsg;
 import lombok.extern.slf4j.Slf4j;

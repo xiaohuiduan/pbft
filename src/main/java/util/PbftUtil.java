@@ -2,11 +2,8 @@ package util;
 
 import cn.hutool.core.io.file.FileWriter;
 import cn.hutool.json.JSONUtil;
-import config.AllNodeCommonMsg;
 import dao.bean.IpJson;
 import dao.node.Node;
-import dao.node.NodeAddress;
-import dao.node.NodeBasicInfo;
 import dao.pbft.PbftMsg;
 import lombok.extern.slf4j.Slf4j;
 
@@ -46,6 +43,7 @@ public class PbftUtil {
     }
 
     public static void save(PbftMsg msg) {
+        log.info(String.format("文件写入%s", msg));
     }
 
     /**
