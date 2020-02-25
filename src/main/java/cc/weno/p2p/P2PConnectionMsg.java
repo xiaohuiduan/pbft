@@ -1,11 +1,8 @@
-import cc.weno.dao.node.Node;
-import cc.weno.dao.node.NodeAddress;
-import cc.weno.dao.pbft.MsgType;
-import cc.weno.dao.pbft.PbftMsg;
-import cc.weno.util.ClientUtil;
-import cc.weno.util.StartPbft;
+package cc.weno.p2p;
 
-import java.util.Scanner;
+import org.tio.client.ClientChannelContext;
+
+import java.util.Map;
 
 /**
  * //                            _ooOoo_
@@ -31,30 +28,18 @@ import java.util.Scanner;
  * //                  佛祖镇楼           BUG辟易
  *
  * @author: xiaohuiduan
- * @data: 2020/1/22 下午2:46
- * @description: 程序运行开始类
+ * @data: 2020/2/13 下午7:47
+ * @description: p2p网络的连接信息
+ * 这个里面有：
+ * 1. 自己作为服务端所连接的client信息
+ * 2. 自己作为客户端与server的上下文
  */
-public class Main {
+public class P2PConnectionMsg {
 
-    public static void main(String[] args) {
-        Scanner s = new Scanner(System.in);
-
-        int i = 0;
-        Node node = Node.getInstance();
-        node.setIndex(i);
-        NodeAddress nodeAddress = new NodeAddress();
-        nodeAddress.setIp("127.0.0.1");
-        nodeAddress.setPort(8080+i);
-        node.setAddress(nodeAddress);
-        StartPbft.start();
-
-        while (true){
-            String str = s.next();
-            PbftMsg msg = new PbftMsg(MsgType.PRE_PREPARE,0);
-            msg.setBody(str);
-            ClientUtil.prePrepare(msg);
-        }
-    }
+    /**
+     * 代表结点的client
+     */
+    public static Map<Integer,ClientChannelContext> CLIENTS;
 
 
 }

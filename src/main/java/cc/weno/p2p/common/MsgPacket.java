@@ -1,11 +1,6 @@
-import cc.weno.dao.node.Node;
-import cc.weno.dao.node.NodeAddress;
-import cc.weno.dao.pbft.MsgType;
-import cc.weno.dao.pbft.PbftMsg;
-import cc.weno.util.ClientUtil;
-import cc.weno.util.StartPbft;
+package cc.weno.p2p.common;
 
-import java.util.Scanner;
+import org.tio.core.intf.Packet;
 
 /**
  * //                            _ooOoo_
@@ -31,30 +26,24 @@ import java.util.Scanner;
  * //                  佛祖镇楼           BUG辟易
  *
  * @author: xiaohuiduan
- * @data: 2020/1/22 下午2:46
- * @description: 程序运行开始类
+ * @data: 2020/2/12 上午12:06
+ * @description: Packet包
  */
-public class Main {
+public class MsgPacket extends Packet {
 
-    public static void main(String[] args) {
-        Scanner s = new Scanner(System.in);
+    private static final long serialVersionUID = -172060606924066412L;
+    /**
+     * 消息头的长度
+     */
+    public static final int HEADER_LENGHT = 4;
+    public static final String CHARSET = "utf-8";
+    private byte[] body;
 
-        int i = 0;
-        Node node = Node.getInstance();
-        node.setIndex(i);
-        NodeAddress nodeAddress = new NodeAddress();
-        nodeAddress.setIp("127.0.0.1");
-        nodeAddress.setPort(8080+i);
-        node.setAddress(nodeAddress);
-        StartPbft.start();
-
-        while (true){
-            String str = s.next();
-            PbftMsg msg = new PbftMsg(MsgType.PRE_PREPARE,0);
-            msg.setBody(str);
-            ClientUtil.prePrepare(msg);
-        }
+    public byte[] getBody() {
+        return body;
     }
 
-
+    public void setBody(byte[] body) {
+        this.body = body;
+    }
 }

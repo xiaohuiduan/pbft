@@ -1,11 +1,4 @@
-import cc.weno.dao.node.Node;
-import cc.weno.dao.node.NodeAddress;
-import cc.weno.dao.pbft.MsgType;
-import cc.weno.dao.pbft.PbftMsg;
-import cc.weno.util.ClientUtil;
-import cc.weno.util.StartPbft;
-
-import java.util.Scanner;
+package cc.weno.p2p.common;
 
 /**
  * //                            _ooOoo_
@@ -31,30 +24,22 @@ import java.util.Scanner;
  * //                  佛祖镇楼           BUG辟易
  *
  * @author: xiaohuiduan
- * @data: 2020/1/22 下午2:46
- * @description: 程序运行开始类
+ * @data: 2020/2/12 上午12:07
+ * @description: 常量
  */
-public class Main {
+public interface Const {
+    /**
+     * 服务器地址
+     */
+    public static final String SERVER = "127.0.0.1";
 
-    public static void main(String[] args) {
-        Scanner s = new Scanner(System.in);
+    /**
+     * 监听端口
+     */
+    public static final int PORT = 8080;
 
-        int i = 0;
-        Node node = Node.getInstance();
-        node.setIndex(i);
-        NodeAddress nodeAddress = new NodeAddress();
-        nodeAddress.setIp("127.0.0.1");
-        nodeAddress.setPort(8080+i);
-        node.setAddress(nodeAddress);
-        StartPbft.start();
-
-        while (true){
-            String str = s.next();
-            PbftMsg msg = new PbftMsg(MsgType.PRE_PREPARE,0);
-            msg.setBody(str);
-            ClientUtil.prePrepare(msg);
-        }
-    }
-
-
+    /**
+     * 心跳超时时间
+     */
+    public static final int TIMEOUT = 1000 * 60;
 }

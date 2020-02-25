@@ -1,15 +1,35 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
+  <component name="AnalysisUIOptions">
+    <option name="GROUP_BY_SEVERITY" value="true" />
+  </component>
   <component name="ChangeListManager">
-    <list default="true" id="6bd61894-b69e-4acb-865c-de791438e846" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/imgs/1208.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/imgs/1211.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/imgs/1217.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/imgs/1224.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/imgs/normal-1582268688521.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/imgs/节点加入view同步.jpg" afterDir="false" />
+    <list default="true" id="6bd61894-b69e-4acb-865c-de791438e846" name="Default Changelist" comment=":wrench: 更改日志记录方式，只记录自己写的日志">
+      <change afterPath="$PROJECT_DIR$/src/main/java/cc/weno/util/MsgUtil.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/config/AllNodeCommonMsg.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/cc/weno/config/AllNodeCommonMsg.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/config/StartConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/cc/weno/config/StartConfig.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/dao/bean/IpJson.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/cc/weno/dao/bean/ReplayJson.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/dao/node/Node.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/cc/weno/dao/node/Node.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/dao/node/NodeAddress.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/cc/weno/dao/node/NodeAddress.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/dao/node/NodeBasicInfo.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/cc/weno/dao/node/NodeBasicInfo.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/dao/pbft/MsgCollection.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/cc/weno/dao/pbft/MsgCollection.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/dao/pbft/MsgType.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/cc/weno/dao/pbft/MsgType.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/dao/pbft/PbftMsg.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/cc/weno/dao/pbft/PbftMsg.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/p2p/P2PConnectionMsg.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/cc/weno/p2p/P2PConnectionMsg.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/p2p/client/ClientAction.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/cc/weno/p2p/client/ClientAction.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/p2p/client/P2PClientLinstener.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/cc/weno/p2p/client/P2PClientLinstener.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/p2p/client/P2pClientAioHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/cc/weno/p2p/client/P2pClientAioHandler.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/p2p/common/Const.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/cc/weno/p2p/common/Const.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/p2p/common/MsgPacket.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/cc/weno/p2p/common/MsgPacket.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/p2p/server/P2PServerAioHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/cc/weno/p2p/server/P2PServerAioHandler.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/p2p/server/ServerAction.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/cc/weno/p2p/server/ServerAction.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/p2p/server/ServerListener.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/cc/weno/p2p/server/ServerListener.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/util/ClientUtil.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/cc/weno/util/ClientUtil.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/util/Pbft.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/cc/weno/util/Pbft.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/util/PbftUtil.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/cc/weno/util/PbftUtil.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/util/StartPbft.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/cc/weno/util/StartPbft.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -68,6 +88,9 @@
     <property name="settings.editor.selected.configurable" value="preferences.pluginManager" />
   </component>
   <component name="RecentsManager">
+    <key name="MoveClassesOrPackagesDialog.RECENTS_KEY">
+      <recent name="" />
+    </key>
     <key name="CopyFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/imgs" />
       <recent name="$PROJECT_DIR$/src/main/resources" />
@@ -123,7 +146,10 @@
       <workItem from="1582259453459" duration="1248000" />
       <workItem from="1582268190495" duration="878000" />
       <workItem from="1582471879346" duration="2293000" />
-      <workItem from="1582510249157" duration="9278000" />
+      <workItem from="1582510249157" duration="9382000" />
+      <workItem from="1582560200165" duration="1638000" />
+      <workItem from="1582615665140" duration="5667000" />
+      <workItem from="1582642737164" duration="11159000" />
     </task>
     <task id="LOCAL-00001" summary="完成一部分的消息类型定义">
       <created>1579681270431</created>
@@ -195,7 +221,21 @@
       <option name="project" value="LOCAL" />
       <updated>1582553422488</updated>
     </task>
-    <option name="localTasksCounter" value="11" />
+    <task id="LOCAL-00011" summary=":bento: 更新Markdown">
+      <created>1582554750137</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1582554750137</updated>
+    </task>
+    <task id="LOCAL-00012" summary=":wrench: 更改日志记录方式，只记录自己写的日志">
+      <created>1582656417178</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1582656417178</updated>
+    </task>
+    <option name="localTasksCounter" value="13" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -212,7 +252,9 @@
     <MESSAGE value=":pencil2: 修复拼写错误" />
     <MESSAGE value=":bug: 修复 BUG" />
     <MESSAGE value=":boom: 完善共识认证，使用UUID作为msg的唯一认证" />
-    <option name="LAST_COMMIT_MESSAGE" value=":boom: 完善共识认证，使用UUID作为msg的唯一认证" />
+    <MESSAGE value=":bento: 更新Markdown" />
+    <MESSAGE value=":wrench: 更改日志记录方式，只记录自己写的日志" />
+    <option name="LAST_COMMIT_MESSAGE" value=":wrench: 更改日志记录方式，只记录自己写的日志" />
   </component>
   <component name="WindowStateProjectService">
     <state x="278" y="45" width="800" height="670" key="#Project_Structure" timestamp="1582114017011">
@@ -244,14 +286,22 @@
       <screen x="0" y="0" width="1366" height="768" />
     </state>
     <state x="390" y="71" width="576" height="617" key="#com.intellij.refactoring.encapsulateFields.EncalpsulateFieldsDialog/0.0.1366.768@0.0.1366.768" timestamp="1581687534075" />
-    <state x="410" y="0" width="536" height="761" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog" timestamp="1581304299988">
+    <state x="505" y="312" width="356" height="142" key="#com.intellij.refactoring.move.MoveHandler.SelectRefactoringDialog" timestamp="1582656458775">
       <screen x="0" y="0" width="1366" height="768" />
     </state>
-    <state x="410" y="0" width="536" height="761" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog/0.0.1366.768@0.0.1366.768" timestamp="1581304299988" />
-    <state x="296" y="7" width="805" height="761" key="CommitChangelistDialog2" timestamp="1582553422225">
+    <state x="505" y="312" width="356" height="142" key="#com.intellij.refactoring.move.MoveHandler.SelectRefactoringDialog/0.0.1366.768@0.0.1366.768" timestamp="1582656458775" />
+    <state x="479" y="268" key="#com.intellij.refactoring.move.moveClassesOrPackages.MoveClassesOrPackagesDialog.packages" timestamp="1582656462423">
       <screen x="0" y="0" width="1366" height="768" />
     </state>
-    <state x="296" y="7" width="805" height="761" key="CommitChangelistDialog2/0.0.1366.768@0.0.1366.768" timestamp="1582553422225" />
+    <state x="479" y="268" key="#com.intellij.refactoring.move.moveClassesOrPackages.MoveClassesOrPackagesDialog.packages/0.0.1366.768@0.0.1366.768" timestamp="1582656462423" />
+    <state x="410" y="0" width="536" height="761" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog" timestamp="1582644185570">
+      <screen x="0" y="0" width="1366" height="768" />
+    </state>
+    <state x="410" y="0" width="536" height="761" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog/0.0.1366.768@0.0.1366.768" timestamp="1582644185570" />
+    <state x="296" y="7" width="805" height="761" key="CommitChangelistDialog2" timestamp="1582656448550">
+      <screen x="0" y="0" width="1366" height="768" />
+    </state>
+    <state x="296" y="7" width="805" height="761" key="CommitChangelistDialog2/0.0.1366.768@0.0.1366.768" timestamp="1582656448550" />
     <state x="1957" y="136" width="728" height="799" key="CommitChangelistDialog2/0.0.3286.1080@0.0.3286.1080" timestamp="1579681270047" />
     <state x="100" y="99" width="1166" height="569" key="DiffContextDialog" timestamp="1581741235383">
       <screen x="0" y="0" width="1366" height="768" />
@@ -265,54 +315,58 @@
       <screen x="0" y="0" width="1366" height="768" />
     </state>
     <state x="506" y="287" key="Github.CreateGistDialog/0.0.1366.768@0.0.1366.768" timestamp="1582123809918" />
-    <state x="278" y="45" width="800" height="670" key="GrepConsoleSettings" timestamp="1582123902265">
+    <state x="77" y="61" width="800" height="670" key="GrepConsoleSettings" timestamp="1582656335138">
       <screen x="0" y="0" width="1366" height="768" />
     </state>
-    <state x="278" y="45" width="800" height="670" key="GrepConsoleSettings/0.0.1366.768@0.0.1366.768" timestamp="1582123902265" />
-    <state width="1324" height="312" key="GridCell.Tab.0.bottom" timestamp="1582553087141">
+    <state x="77" y="61" width="800" height="670" key="GrepConsoleSettings/0.0.1366.768@0.0.1366.768" timestamp="1582656335138" />
+    <state width="1324" height="404" key="GridCell.Tab.0.bottom" timestamp="1582656493938">
       <screen x="0" y="0" width="1366" height="768" />
     </state>
-    <state width="1324" height="312" key="GridCell.Tab.0.bottom/0.0.1366.768@0.0.1366.768" timestamp="1582553087141" />
-    <state width="1324" height="312" key="GridCell.Tab.0.center" timestamp="1582553087140">
+    <state width="1324" height="404" key="GridCell.Tab.0.bottom/0.0.1366.768@0.0.1366.768" timestamp="1582656493938" />
+    <state width="1324" height="404" key="GridCell.Tab.0.center" timestamp="1582656493937">
       <screen x="0" y="0" width="1366" height="768" />
     </state>
-    <state width="1324" height="312" key="GridCell.Tab.0.center/0.0.1366.768@0.0.1366.768" timestamp="1582553087140" />
-    <state width="1324" height="312" key="GridCell.Tab.0.left" timestamp="1582553087139">
+    <state width="1324" height="404" key="GridCell.Tab.0.center/0.0.1366.768@0.0.1366.768" timestamp="1582656493937" />
+    <state width="1324" height="404" key="GridCell.Tab.0.left" timestamp="1582656493936">
       <screen x="0" y="0" width="1366" height="768" />
     </state>
-    <state width="1324" height="312" key="GridCell.Tab.0.left/0.0.1366.768@0.0.1366.768" timestamp="1582553087139" />
-    <state width="1324" height="312" key="GridCell.Tab.0.right" timestamp="1582553087140">
+    <state width="1324" height="404" key="GridCell.Tab.0.left/0.0.1366.768@0.0.1366.768" timestamp="1582656493936" />
+    <state width="1324" height="404" key="GridCell.Tab.0.right" timestamp="1582656493938">
       <screen x="0" y="0" width="1366" height="768" />
     </state>
-    <state width="1324" height="312" key="GridCell.Tab.0.right/0.0.1366.768@0.0.1366.768" timestamp="1582553087140" />
+    <state width="1324" height="404" key="GridCell.Tab.0.right/0.0.1366.768@0.0.1366.768" timestamp="1582656493938" />
     <state x="216" y="41" width="924" height="677" key="Maven.ArtifactSearchDialog" timestamp="1581650734082">
       <screen x="0" y="0" width="1366" height="768" />
     </state>
     <state x="216" y="41" width="924" height="677" key="Maven.ArtifactSearchDialog/0.0.1366.768@0.0.1366.768" timestamp="1581650734082" />
-    <state x="192" y="0" width="1024" height="761" key="SettingsEditor" timestamp="1582210665256">
+    <state x="192" y="0" width="1024" height="761" key="SettingsEditor" timestamp="1582652229475">
       <screen x="0" y="0" width="1366" height="768" />
     </state>
-    <state x="192" y="0" width="1024" height="761" key="SettingsEditor/0.0.1366.768@0.0.1366.768" timestamp="1582210665256" />
-    <state x="278" y="119" width="800" height="521" key="Vcs.Push.Dialog.v2" timestamp="1582553438460">
+    <state x="192" y="0" width="1024" height="761" key="SettingsEditor/0.0.1366.768@0.0.1366.768" timestamp="1582652229475" />
+    <state x="278" y="119" width="800" height="521" key="Vcs.Push.Dialog.v2" timestamp="1582554783037">
       <screen x="0" y="0" width="1366" height="768" />
     </state>
-    <state x="278" y="119" width="800" height="521" key="Vcs.Push.Dialog.v2/0.0.1366.768@0.0.1366.768" timestamp="1582553438460" />
+    <state x="278" y="119" width="800" height="521" key="Vcs.Push.Dialog.v2/0.0.1366.768@0.0.1366.768" timestamp="1582554783037" />
     <state x="382" y="211" key="com.intellij.ide.util.TipDialog" timestamp="1582510280334">
       <screen x="0" y="0" width="1366" height="768" />
     </state>
     <state x="382" y="211" key="com.intellij.ide.util.TipDialog/0.0.1366.768@0.0.1366.768" timestamp="1582510280334" />
-    <state x="1024" y="367" width="647" height="730" key="dock-window-1" timestamp="1582114945350">
+    <state x="257" y="0" width="842" height="761" key="com.intellij.openapi.editor.actions.MultiplePasteAction$ClipboardContentChooser" timestamp="1582653240490">
       <screen x="0" y="0" width="1366" height="768" />
     </state>
-    <state x="1024" y="367" width="647" height="730" key="dock-window-1/0.0.1366.768@0.0.1366.768" timestamp="1582114945350" />
+    <state x="257" y="0" width="842" height="761" key="com.intellij.openapi.editor.actions.MultiplePasteAction$ClipboardContentChooser/0.0.1366.768@0.0.1366.768" timestamp="1582653240490" />
+    <state x="719" y="38" width="647" height="730" key="dock-window-1" timestamp="1582644169397">
+      <screen x="0" y="0" width="1366" height="768" />
+    </state>
+    <state x="719" y="38" width="647" height="730" key="dock-window-1/0.0.1366.768@0.0.1366.768" timestamp="1582644169397" />
     <state x="416" y="154" width="524" height="452" key="extract.method.dialog" timestamp="1581689922820">
       <screen x="0" y="0" width="1366" height="768" />
     </state>
     <state x="416" y="154" width="524" height="452" key="extract.method.dialog/0.0.1366.768@0.0.1366.768" timestamp="1581689922820" />
-    <state x="387" y="0" width="592" height="768" key="find.popup" timestamp="1582552819753">
+    <state x="387" y="0" width="592" height="768" key="find.popup" timestamp="1582653268137">
       <screen x="0" y="0" width="1366" height="768" />
     </state>
-    <state x="387" y="0" width="592" height="768" key="find.popup/0.0.1366.768@0.0.1366.768" timestamp="1582552819753" />
+    <state x="387" y="0" width="592" height="768" key="find.popup/0.0.1366.768@0.0.1366.768" timestamp="1582653268137" />
     <state x="94" y="82" width="1168" height="596" key="new project wizard" timestamp="1581436545592">
       <screen x="0" y="0" width="1366" height="768" />
     </state>

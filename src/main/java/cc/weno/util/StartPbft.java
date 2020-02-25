@@ -1,11 +1,8 @@
-import cc.weno.dao.node.Node;
-import cc.weno.dao.node.NodeAddress;
-import cc.weno.dao.pbft.MsgType;
-import cc.weno.dao.pbft.PbftMsg;
-import cc.weno.util.ClientUtil;
-import cc.weno.util.StartPbft;
+package cc.weno.util;
 
-import java.util.Scanner;
+import cc.weno.config.StartConfig;
+import cc.weno.dao.node.Node;
+import lombok.extern.slf4j.Slf4j;
 
 /**
  * //                            _ooOoo_
@@ -31,30 +28,19 @@ import java.util.Scanner;
  * //                  佛祖镇楼           BUG辟易
  *
  * @author: xiaohuiduan
- * @data: 2020/1/22 下午2:46
- * @description: 程序运行开始类
+ * @data: 2020/2/19 下午7:56
+ * @description: 启动
  */
-public class Main {
+@Slf4j
+public class StartPbft {
+    Node node = Node.getInstance();
 
-    public static void main(String[] args) {
-        Scanner s = new Scanner(System.in);
 
-        int i = 0;
-        Node node = Node.getInstance();
-        node.setIndex(i);
-        NodeAddress nodeAddress = new NodeAddress();
-        nodeAddress.setIp("127.0.0.1");
-        nodeAddress.setPort(8080+i);
-        node.setAddress(nodeAddress);
-        StartPbft.start();
-
-        while (true){
-            String str = s.next();
-            PbftMsg msg = new PbftMsg(MsgType.PRE_PREPARE,0);
-            msg.setBody(str);
-            ClientUtil.prePrepare(msg);
+    public static void start() {
+        StartConfig startConfig = new StartConfig();
+        if (startConfig.startConfig()){
+            System.out.println("初始化成功");
+            new Pbft().pubView();
         }
     }
-
-
 }

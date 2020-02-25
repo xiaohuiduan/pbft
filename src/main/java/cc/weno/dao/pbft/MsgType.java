@@ -1,12 +1,4 @@
-import cc.weno.dao.node.Node;
-import cc.weno.dao.node.NodeAddress;
-import cc.weno.dao.pbft.MsgType;
-import cc.weno.dao.pbft.PbftMsg;
-import cc.weno.util.ClientUtil;
-import cc.weno.util.StartPbft;
-
-import java.util.Scanner;
-
+package cc.weno.dao.pbft;
 /**
  * //                            _ooOoo_
  * //                           o8888888o
@@ -31,30 +23,37 @@ import java.util.Scanner;
  * //                  佛祖镇楼           BUG辟易
  *
  * @author: xiaohuiduan
- * @data: 2020/1/22 下午2:46
- * @description: 程序运行开始类
+ * @data: 2020/2/14 上午11:35
+ * @description: 消息类型
  */
-public class Main {
+public class MsgType {
+    /**
+     * 请求视图
+     */
+    public static final int GET_VIEW = -1;
 
-    public static void main(String[] args) {
-        Scanner s = new Scanner(System.in);
+    /**
+     * 变更视图
+     */
+    public static final int CHANGE_VIEW = 0;
 
-        int i = 0;
-        Node node = Node.getInstance();
-        node.setIndex(i);
-        NodeAddress nodeAddress = new NodeAddress();
-        nodeAddress.setIp("127.0.0.1");
-        nodeAddress.setPort(8080+i);
-        node.setAddress(nodeAddress);
-        StartPbft.start();
+    /**
+     * 预准备阶段
+     */
+    public static final int PRE_PREPARE = 1;
 
-        while (true){
-            String str = s.next();
-            PbftMsg msg = new PbftMsg(MsgType.PRE_PREPARE,0);
-            msg.setBody(str);
-            ClientUtil.prePrepare(msg);
-        }
-    }
+    /**
+     * 准备阶段
+     */
+    public static final int PREPARE = 2;
 
+    /**
+     * 提交阶段
+     */
+    public static final int COMMIT = 3;
 
+    /**
+     * ip消息回复回复阶段
+     */
+    public static final int CLIENT_REPLAY = 4;
 }
