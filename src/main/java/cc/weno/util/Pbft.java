@@ -47,6 +47,7 @@ public class Pbft {
      */
     public boolean pubView() {
 
+        TestUtil.startTime = System.currentTimeMillis();
         /**
          * 如果区块链中的网络节点小于3
          */

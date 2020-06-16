@@ -55,6 +55,7 @@ import java.util.concurrent.ConcurrentHashMap;
 @Slf4j
 public class StartConfig {
     private Node node = Node.getInstance();
+    public static String basePath;
 
     /**
      * 初始化操作
@@ -112,7 +113,6 @@ public class StartConfig {
             log.error("服务端启动错误！！" + e.getMessage());
             return false;
         }
-
         return true;
     }
 
@@ -122,7 +122,7 @@ public class StartConfig {
      * @return 成功返回true
      */
     private boolean initAddress() {
-        FileReader fileReader = new FileReader("./ip.json");
+        FileReader fileReader = new FileReader(PbftUtil.ipJsonPath);
         List<String> ipJsonStr = fileReader.readLines();
         for (String s : ipJsonStr) {
             ReplayJson replayJson = JSON.parseObject(s, ReplayJson.class);
@@ -141,6 +141,12 @@ public class StartConfig {
             PbftUtil.writeIpToFile(node);
             return true;
         }
+        if (AllNodeCommonMsg.allNodeAddressMap.containsKey(node.getIndex())) {
+            log.warn("已经存在此节点");
+            return false;
+        }
+        log.info(String.format("ip.json文件数量%s", ipJsonStr.size()));
+        log.info(String.format("内存地址%s", AllNodeCommonMsg.allNodeAddressMap.values().size()));
         return AllNodeCommonMsg.allNodeAddressMap.values().size() == ipJsonStr.size();
     }
 }

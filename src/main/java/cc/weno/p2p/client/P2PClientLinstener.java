@@ -5,6 +5,7 @@ import cc.weno.dao.node.Node;
 import cc.weno.dao.pbft.MsgCollection;
 import cc.weno.dao.pbft.MsgType;
 import cc.weno.dao.pbft.PbftMsg;
+import cn.hutool.core.util.RandomUtil;
 import lombok.extern.slf4j.Slf4j;
 import org.tio.client.intf.ClientAioListener;
 import org.tio.core.ChannelContext;

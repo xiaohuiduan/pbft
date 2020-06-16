@@ -1,5 +1,6 @@
 package cc.weno.p2p.server;
 
+import cn.hutool.core.util.RandomUtil;
 import lombok.extern.slf4j.Slf4j;
 import org.tio.core.ChannelContext;
 import org.tio.core.intf.Packet;

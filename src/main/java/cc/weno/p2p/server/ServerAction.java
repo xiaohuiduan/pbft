@@ -1,6 +1,5 @@
 package cc.weno.p2p.server;
 
-import com.alibaba.fastjson.JSON;
 import cc.weno.config.AllNodeCommonMsg;
 import cc.weno.dao.bean.ReplayJson;
 import cc.weno.dao.node.Node;
@@ -9,14 +8,16 @@ import cc.weno.dao.node.NodeBasicInfo;
 import cc.weno.dao.pbft.MsgCollection;
 import cc.weno.dao.pbft.MsgType;
 import cc.weno.dao.pbft.PbftMsg;
+import cc.weno.p2p.client.ClientAction;
+import cc.weno.p2p.common.MsgPacket;
+import cc.weno.util.ClientUtil;
+import cc.weno.util.MsgUtil;
+import cc.weno.util.PbftUtil;
+import com.alibaba.fastjson.JSON;
 import lombok.extern.slf4j.Slf4j;
 import org.tio.client.ClientChannelContext;
 import org.tio.core.ChannelContext;
 import org.tio.core.Tio;
-import cc.weno.p2p.client.ClientAction;
-import cc.weno.p2p.common.MsgPacket;
-import cc.weno.util.ClientUtil;
-import cc.weno.util.PbftUtil;
 
 import java.io.UnsupportedEncodingException;
 
@@ -231,8 +232,10 @@ public class ServerAction {
         msg.setNode(node.getIndex());
         // 设置消息的目的地
         msg.setToNode(fromNode);
+        log.info(String.format("同意此节点%s的申请", msg));
+        msg.setOk(true);
         msg.setViewNum(AllNodeCommonMsg.view);
-
+        MsgUtil.signMsg(msg);
         String jsonView = JSON.toJSONString(msg);
         MsgPacket msgPacket = new MsgPacket();
         try {

@@ -1,12 +1,16 @@
 package cc.weno.dao.pbft;
 
+import cc.weno.dao.bean.DbDao;
+import cn.hutool.db.Db;
 import com.google.common.collect.Sets;
 import com.google.common.util.concurrent.AtomicLongMap;
 import lombok.Data;
 
 import java.util.Set;
 import java.util.concurrent.BlockingQueue;
+import java.util.concurrent.CopyOnWriteArrayList;
 import java.util.concurrent.LinkedBlockingQueue;
+import java.util.concurrent.atomic.AtomicLong;
 
 /**
  * //                            _ooOoo_
@@ -60,6 +64,16 @@ public class MsgCollection {
      * 这个是在初始化视图的时候会用到
      */
     private AtomicLongMap<Integer> viewNumCount = AtomicLongMap.create();
+
+    /**
+     * 参与认证的节点
+     */
+    private CopyOnWriteArrayList<DbDao> dbDaos = new CopyOnWriteArrayList<DbDao>();
+    /**
+     * 不赞同视图的数量
+     */
+    private AtomicLong disagreeViewNum = new AtomicLong();
+
 
     /**
      * 预准备阶段

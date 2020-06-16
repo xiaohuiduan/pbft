@@ -33,14 +33,15 @@ import lombok.extern.slf4j.Slf4j;
  */
 @Slf4j
 public class StartPbft {
-    Node node = Node.getInstance();
 
 
-    public static void start() {
+    public static boolean start() {
         StartConfig startConfig = new StartConfig();
-        if (startConfig.startConfig()){
-            System.out.println("初始化成功");
-            new Pbft().pubView();
+        if (startConfig.startConfig()) {
+            if (new Pbft().pubView()) {
+                return true;
+            }
         }
+        return false;
     }
 }

@@ -1,5 +1,6 @@
 package cc.weno.p2p.server;
 
+import cn.hutool.core.util.RandomUtil;
 import com.alibaba.fastjson.JSON;
 import cc.weno.dao.pbft.MsgType;
 import cc.weno.util.MsgUtil;

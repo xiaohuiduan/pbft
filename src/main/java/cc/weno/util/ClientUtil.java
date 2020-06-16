@@ -145,6 +145,7 @@ public class ClientUtil {
         ReplayJson replayJson = new ReplayJson();
         replayJson.setIp(ip);
         replayJson.setPort(port);
+        // 公钥部分
         replayJson.setPublicKey(Node.getInstance().getPublicKey());
 
         replayMsg.setBody(JSON.toJSONString(replayJson));

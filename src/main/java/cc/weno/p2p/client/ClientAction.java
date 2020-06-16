@@ -1,14 +1,15 @@
 package cc.weno.p2p.client;
 
 import cc.weno.config.AllNodeCommonMsg;
+import cc.weno.dao.bean.DbDao;
 import cc.weno.dao.node.Node;
 import cc.weno.dao.pbft.MsgCollection;
 import cc.weno.dao.pbft.MsgType;
 import cc.weno.dao.pbft.PbftMsg;
+import cc.weno.util.*;
+import cn.hutool.db.Db;
 import lombok.extern.slf4j.Slf4j;
 import org.tio.core.ChannelContext;
-import cc.weno.util.ClientUtil;
-import cc.weno.util.PbftUtil;
 
 /**
  * //                            _ooOoo_
@@ -121,18 +122,43 @@ public class ClientAction {
      *
      * @param msg
      */
-    private void getView(PbftMsg msg) {
+    synchronized private void getView(PbftMsg msg) {
+        int fromNode = msg.getNode();
         if (node.isViewOK()) {
             return;
         }
+
+        if (!MsgUtil.isRealMsg(msg) || !msg.isOk()) {
+            long count = collection.getDisagreeViewNum().incrementAndGet();
+            if (count >= AllNodeCommonMsg.getMaxf()) {
+                log.info("视图获取失败");
+                //程序结束记录时间
+                TestUtil.endTime = System.currentTimeMillis();
+                long totalTime = TestUtil.endTime - TestUtil.startTime;
+                TestUtil.writeBadTime(totalTime, Node.getInstance().getIndex());
+                System.exit(0);
+            }
+            return;
+        }
+        // 将消息添加到list中
+        // DbUtil.addDaotoList(fromNode,msg);
+
         long count = collection.getViewNumCount().incrementAndGet(msg.getViewNum());
         if (count >= AllNodeCommonMsg.getAgreeNum() && !node.isViewOK()) {
+            // 将节点认证消息保存
+            // DbUtil.save();
+
             collection.getViewNumCount().clear();
+            //程序结束记录时间
+            TestUtil.endTime = System.currentTimeMillis();
+            //总消耗时间
+            long totalTime = TestUtil.endTime - TestUtil.startTime;
             node.setViewOK(true);
             AllNodeCommonMsg.view = msg.getViewNum();
             log.info("视图初始化完成OK");
             // 将节点写入文件
             PbftUtil.writeIpToFile(node);
+            TestUtil.writeOkTime(totalTime, Node.getInstance().getIndex());
             ClientUtil.publishIpPort(node.getIndex(), node.getAddress().getIp(), node.getAddress().getPort());
         }
     }

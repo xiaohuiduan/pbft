@@ -113,6 +113,6 @@ public class PbftMsg {
 
     @Override
     public int hashCode() {
-        return Objects.hash(getMsgType(), getBody(), getNode(), getToNode(), getTime(), isOk(), getViewNum(), getId());
+        return Objects.hash(getMsgType(), getBody(), getNode(), getToNode(), getTime(),  getViewNum(), getId());
     }
 }

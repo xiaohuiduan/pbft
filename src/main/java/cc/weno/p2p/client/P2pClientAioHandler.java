@@ -1,6 +1,7 @@
 package cc.weno.p2p.client;
 
 import cc.weno.dao.pbft.MsgType;
+import cn.hutool.core.util.RandomUtil;
 import com.alibaba.fastjson.JSON;
 import cc.weno.dao.pbft.MsgCollection;
 import cc.weno.util.MsgUtil;
@@ -80,6 +81,8 @@ public class P2pClientAioHandler implements ClientAioHandler {
      */
     @Override
     public Packet decode(ByteBuffer buffer, int limit, int position, int readableLength, ChannelContext channelContext) throws AioDecodeException {
+
+
         if (readableLength < MsgPacket.HEADER_LENGHT) {
             return null;
         }
