@@ -131,11 +131,7 @@ public class ClientAction {
         if (!MsgUtil.isRealMsg(msg) || !msg.isOk()) {
             long count = collection.getDisagreeViewNum().incrementAndGet();
             if (count >= AllNodeCommonMsg.getMaxf()) {
-                log.info("视图获取失败");
-                //程序结束记录时间
-                TestUtil.endTime = System.currentTimeMillis();
-                long totalTime = TestUtil.endTime - TestUtil.startTime;
-                TestUtil.writeBadTime(totalTime, Node.getInstance().getIndex());
+                log.error("视图获取失败");
                 System.exit(0);
             }
             return;
@@ -149,16 +145,12 @@ public class ClientAction {
             // DbUtil.save();
 
             collection.getViewNumCount().clear();
-            //程序结束记录时间
-            TestUtil.endTime = System.currentTimeMillis();
-            //总消耗时间
-            long totalTime = TestUtil.endTime - TestUtil.startTime;
+
             node.setViewOK(true);
             AllNodeCommonMsg.view = msg.getViewNum();
             log.info("视图初始化完成OK");
             // 将节点写入文件
             PbftUtil.writeIpToFile(node);
-            TestUtil.writeOkTime(totalTime, Node.getInstance().getIndex());
             ClientUtil.publishIpPort(node.getIndex(), node.getAddress().getIp(), node.getAddress().getPort());
         }
     }

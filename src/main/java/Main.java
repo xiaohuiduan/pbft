@@ -1,8 +1,16 @@
 import cc.weno.config.StartConfig;
 import cc.weno.dao.node.Node;
 import cc.weno.dao.node.NodeAddress;
+import cc.weno.dao.pbft.MsgType;
+import cc.weno.dao.pbft.PbftMsg;
+import cc.weno.util.ClientUtil;
 import cc.weno.util.StartPbft;
 import lombok.extern.slf4j.Slf4j;
+
+import java.io.File;
+import java.io.IOException;
+import java.util.Scanner;
+
 
 /**
  * //                            _ooOoo_
@@ -40,6 +48,7 @@ public class Main {
         int i = 0;
         String ip = "127.0.0.1";
         int port = 8080 + i;
+
         StartConfig.basePath = "C:\\Users\\XiaoHui\\Desktop\\data\\";
         int index = i;
 
@@ -56,6 +65,9 @@ public class Main {
 ////        文件保存位置，在文件保存位置必须存在一个oldIp.json的文件
 //        StartConfig.basePath = args[3];
 
+
+        createIpJsonFile(StartConfig.basePath);
+
         Node node = Node.getInstance();
         node.setIndex(index);
         NodeAddress nodeAddress = new NodeAddress();
@@ -65,12 +77,36 @@ public class Main {
         StartPbft.start();
 
 //        可以在这里发送消息
-//        while (true) {
-//            String str = s.next();
-//            PbftMsg msg = new PbftMsg(MsgType.PRE_PREPARE, 0);
-//            msg.setBody(str);
-//            ClientUtil.prePrepare(msg);
-//        }
+        Scanner scanner = new Scanner(System.in);
+        while (true) {
+            String str = scanner.next();
+            PbftMsg msg = new PbftMsg(MsgType.PRE_PREPARE, 0);
+            msg.setBody(str);
+            ClientUtil.prePrepare(msg);
+        }
+    }
+
+    /**
+     * 如果文件或者文件夹不存在则创建
+     *
+     * @param basePath
+     */
+    private static void createIpJsonFile(String basePath) {
+        File dir = new File(basePath);
+
+        // 如果目录不存在
+        if (!dir.exists()) {
+            dir.mkdirs();
+        }
+        File file = new File(basePath + "ip.json");
+        if (!file.exists()) {
+            try {
+                file.createNewFile();
+            } catch (IOException e) {
+                // TODO Auto-generated catch block
+                e.printStackTrace();
+            }
+        }
     }
 }
 

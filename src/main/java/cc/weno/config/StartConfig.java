@@ -142,7 +142,7 @@ public class StartConfig {
             return true;
         }
         if (AllNodeCommonMsg.allNodeAddressMap.containsKey(node.getIndex())) {
-            log.warn("已经存在此节点");
+            log.error("已经存在此节点");
             return false;
         }
         log.info(String.format("ip.json文件数量%s", ipJsonStr.size()));

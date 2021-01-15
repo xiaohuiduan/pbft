@@ -40,7 +40,7 @@ public class PbftUtil {
 
     private static boolean flag = true;
 
-    public static String ipJsonPath = StartConfig.basePath+"oldIp.json";
+    public static String ipJsonPath = StartConfig.basePath + "ip.json";
 
 
     public static boolean checkMsg(PbftMsg msg) {
@@ -49,7 +49,8 @@ public class PbftUtil {
     }
 
     public static void save(PbftMsg msg) {
-        log.info(String.format("文件写入%s", msg));
+        log.warn(String.format("Pbft消息可以写入块%s", msg));
+        log.warn("请根据自己的需要使用DbUtil类进行操作");
     }
 
     /**

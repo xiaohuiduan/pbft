@@ -128,11 +128,6 @@ public class DbUtil {
 
     }
 
-    public static void main(String[] args) {
-        dbFilePath = "/home/xiaohui/桌面/test/29.db";
-        get();
-    }
-
     /**
      * @param node 谁发送的信息
      * @param msg
