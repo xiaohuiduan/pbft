@@ -162,10 +162,10 @@ public class ClientUtil {
         msg.setNode(Node.getInstance().getIndex());
         msg.setToNode(-1);
         msg.setViewNum(AllNodeCommonMsg.view);
-
         Node node = Node.getInstance();
+        // 限制只有主节点能够发送消息
         if (node.getIndex() != AllNodeCommonMsg.getPriIndex()) {
-            log.error("该节点非主节点，不能发送preprepare消息");
+            log.warn("该节点非主节点，不能发送preprepare消息");
             return;
         }
         msg.setMsgType(MsgType.PRE_PREPARE);
