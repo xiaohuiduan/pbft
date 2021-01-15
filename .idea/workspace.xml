@@ -22,7 +22,10 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="6bd61894-b69e-4acb-865c-de791438e846" name="Default Changelist" comment=":truck: 将所有的包移动到cc.weno中&#10;:sparkles: 添加私钥签名和公钥加密" />
+    <list default="true" id="6bd61894-b69e-4acb-865c-de791438e846" name="Default Changelist" comment=":wrench: 修改一下代码&#10;:bento: 更新README">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Main.java" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -64,6 +67,7 @@
     <option name="showMembers" value="true" />
   </component>
   <component name="PropertiesComponent">
+    <property name="ASKED_ADD_EXTERNAL_FILES" value="true" />
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
@@ -278,16 +282,33 @@
       <option name="project" value="LOCAL" />
       <updated>1582656600005</updated>
     </task>
-    <option name="localTasksCounter" value="14" />
+    <task id="LOCAL-00014" summary=":wrench: 修改一下代码&#10;:bento: 更新README">
+      <created>1610719821463</created>
+      <option name="number" value="00014" />
+      <option name="presentableId" value="LOCAL-00014" />
+      <option name="project" value="LOCAL" />
+      <updated>1610719821463</updated>
+    </task>
+    <option name="localTasksCounter" value="15" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="2" />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
     <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="VcsManagerConfiguration">
+    <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
     <ignored-roots>
       <path value="$PROJECT_DIR$" />
     </ignored-roots>
@@ -304,7 +325,8 @@
     <MESSAGE value=":bento: 更新Markdown" />
     <MESSAGE value=":wrench: 更改日志记录方式，只记录自己写的日志" />
     <MESSAGE value=":truck: 将所有的包移动到cc.weno中&#10;:sparkles: 添加私钥签名和公钥加密" />
-    <option name="LAST_COMMIT_MESSAGE" value=":truck: 将所有的包移动到cc.weno中&#10;:sparkles: 添加私钥签名和公钥加密" />
+    <MESSAGE value=":wrench: 修改一下代码&#10;:bento: 更新README" />
+    <option name="LAST_COMMIT_MESSAGE" value=":wrench: 修改一下代码&#10;:bento: 更新README" />
   </component>
   <component name="WindowStateProjectService">
     <state x="320" y="15" key="#Main" timestamp="1610716872332">
@@ -339,9 +361,9 @@
       <screen x="0" y="0" width="1280" height="800" />
     </state>
     <state width="1237" height="41" key="GridCell.Tab.0.right/0.0.1280.800@0.0.1280.800" timestamp="1610718858831" />
-    <state x="342" y="131" width="594" height="536" key="find.popup" timestamp="1610718101052">
+    <state x="342" y="131" width="594" height="536" key="find.popup" timestamp="1610719825557">
       <screen x="0" y="0" width="1280" height="800" />
     </state>
-    <state x="342" y="131" width="594" height="536" key="find.popup/0.0.1280.800@0.0.1280.800" timestamp="1610718101052" />
+    <state x="342" y="131" width="594" height="536" key="find.popup/0.0.1280.800@0.0.1280.800" timestamp="1610719825557" />
   </component>
 </project>

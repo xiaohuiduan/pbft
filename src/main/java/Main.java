@@ -103,7 +103,7 @@ public class Main {
             try {
                 file.createNewFile();
             } catch (IOException e) {
-                // TODO Auto-generated catch block
+                log.error("json文件创建失败");
                 e.printStackTrace();
             }
         }
